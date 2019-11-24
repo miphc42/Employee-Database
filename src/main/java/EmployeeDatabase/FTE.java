@@ -11,8 +11,8 @@ package EmployeeDatabase;
  */
 public class FTE extends EmployeeInfo {
     double annualSalary;
-    public FTE(int employeeNumber, String firstName, String lastName, int gender, int workLocation, double deductionRate, double annualSalary, String image) {
-        super(employeeNumber, firstName, lastName, gender, workLocation, deductionRate, image);
+    public FTE(int employeeNumber, String firstName, String lastName, int gender, int workLocation, double deductionRate, double annualSalary, String image, String email) {
+        super(employeeNumber, firstName, lastName, gender, workLocation, deductionRate, image, email);
         this.annualSalary = annualSalary;
     }
     public double calcAnnualGrossIncome(){

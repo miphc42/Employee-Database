@@ -5,11 +5,15 @@
  */
 package EmployeeDatabase;
 
+import java.awt.Color;
+import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 
 /**
  *
@@ -22,6 +26,18 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        Action action = new AbstractAction(){
+    @Override
+    public void actionPerformed(ActionEvent e)
+    {
+        try {
+            new MainMenu().setVisible(true);
+            Login.this.dispose();
+        } catch (IOException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+}; PW.addActionListener(action);
         
     }
 
@@ -43,7 +59,7 @@ public class Login extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         Login = new java.awt.Button();
         PW = new javax.swing.JPasswordField();
-        jLabel5 = new javax.swing.JLabel();
+        close = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
@@ -86,10 +102,16 @@ public class Login extends javax.swing.JFrame {
         PW.setForeground(new java.awt.Color(255, 255, 255));
         PW.setBorder(null);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-multiply-24.png")); // NOI18N
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+        close.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-multiply-24.png")); // NOI18N
+        close.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel5MouseClicked(evt);
+                closeMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                closeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                closeMouseExited(evt);
             }
         });
 
@@ -109,20 +131,17 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(125, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(103, 103, 103))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addContainerGap())))
+                .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(103, 103, 103))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(close))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5)
-                .addGap(86, 86, 86)
+                .addComponent(close)
+                .addGap(97, 97, 97)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -176,9 +195,19 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_LoginActionPerformed
 
-    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+    private void closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseClicked
         this.dispose();
-    }//GEN-LAST:event_jLabel5MouseClicked
+    }//GEN-LAST:event_closeMouseClicked
+
+    private void closeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseEntered
+        close.setBackground(Color.red);
+        close.setOpaque(true);
+    }//GEN-LAST:event_closeMouseEntered
+
+    private void closeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseExited
+        close.setBackground(new Color(51,51,51));
+        close.setOpaque(true);
+    }//GEN-LAST:event_closeMouseExited
 
     /**
      * @param args the command line arguments
@@ -219,11 +248,11 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField ID;
     private java.awt.Button Login;
     private javax.swing.JPasswordField PW;
+    private javax.swing.JLabel close;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;

@@ -5,10 +5,12 @@
  */
 package EmployeeDatabase;
 
+import java.awt.Color;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.mail.MessagingException;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,6 +24,24 @@ public class Remove extends javax.swing.JFrame {
      */
     public Remove() {
         initComponents();
+        invis();
+    }
+     public void invis(){
+     homeSep.setVisible(false);
+     addSep.setVisible(false);
+     editSep.setVisible(false);
+     removeSep.setVisible(false);
+     settingSep.setVisible(false);   
+    homeSep.setForeground(Color.white.brighter()); // top line color
+    homeSep.setBackground(Color.white.brighter());
+    addSep.setForeground(Color.white.brighter()); // top line color
+    addSep.setBackground(Color.white.brighter());
+    editSep.setForeground(Color.white.brighter()); // top line color
+    editSep.setBackground(Color.white.brighter());
+    removeSep.setForeground(Color.white.brighter()); // top line color
+    removeSep.setBackground(Color.white.brighter());
+    settingSep.setForeground(Color.white.brighter()); // top line color
+    settingSep.setBackground(Color.white.brighter());  
     }
 
     /**
@@ -41,8 +61,18 @@ public class Remove extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        editLabel = new javax.swing.JLabel();
+        editSep = new javax.swing.JSeparator();
+        removeSep = new javax.swing.JSeparator();
+        Home = new javax.swing.JLabel();
+        setting = new javax.swing.JLabel();
+        settingSep = new javax.swing.JSeparator();
+        removeLabel = new javax.swing.JLabel();
+        homeSep = new javax.swing.JSeparator();
+        addLabel = new javax.swing.JLabel();
+        addSep = new javax.swing.JSeparator();
         jSeparator1 = new javax.swing.JSeparator();
-        jLabel4 = new javax.swing.JLabel();
+        close = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Remove Employee");
@@ -56,7 +86,7 @@ public class Remove extends javax.swing.JFrame {
         removingEmployee.setBorder(null);
         removingEmployee.setForeground(new java.awt.Color(255, 255, 255));
         removingEmployee.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jPanel1.add(removingEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 188, 40));
+        jPanel1.add(removingEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 188, 40));
 
         removeButton.setBackground(new java.awt.Color(255, 255, 255));
         removeButton.setFont(new java.awt.Font("Segoe UI Light", 0, 11)); // NOI18N
@@ -68,7 +98,7 @@ public class Remove extends javax.swing.JFrame {
                 removeButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(removeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 100, 30));
+        jPanel1.add(removeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 100, 30));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -85,14 +115,15 @@ public class Remove extends javax.swing.JFrame {
                 removeAllActionPerformed(evt);
             }
         });
-        jPanel1.add(removeAll, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 237, 110, 30));
+        jPanel1.add(removeAll, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, 110, 30));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Historic", 0, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Enter Employee Number");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 51));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-back-24.png")); // NOI18N
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -100,44 +131,118 @@ public class Remove extends javax.swing.JFrame {
                 jLabel3MouseClicked(evt);
             }
         });
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addContainerGap(26, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addContainerGap(245, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 280));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 190, 10));
-
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-multiply-24.png")); // NOI18N
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        editLabel.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-edit-24 (2).png")); // NOI18N
+        editLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
+                editLabelMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                editLabelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                editLabelMouseExited(evt);
             }
         });
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, -1, -1));
+        jPanel2.add(editLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 154, -1, -1));
+
+        editSep.setOpaque(true);
+        jPanel2.add(editSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 184, 24, -1));
+
+        removeSep.setOpaque(true);
+        jPanel2.add(removeSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 239, 24, -1));
+
+        Home.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-home-24.png")); // NOI18N
+        Home.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                HomeMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                HomeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                HomeMouseExited(evt);
+            }
+        });
+        jPanel2.add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 44, -1, -1));
+
+        setting.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-settings-24.png")); // NOI18N
+        setting.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                settingMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                settingMouseExited(evt);
+            }
+        });
+        jPanel2.add(setting, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 264, -1, -1));
+
+        settingSep.setOpaque(true);
+        jPanel2.add(settingSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 294, 24, -1));
+
+        removeLabel.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-remove-24 (1).png")); // NOI18N
+        removeLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                removeLabelMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                removeLabelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                removeLabelMouseExited(evt);
+            }
+        });
+        jPanel2.add(removeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 209, -1, -1));
+
+        homeSep.setForeground(new java.awt.Color(255, 255, 255));
+        homeSep.setOpaque(true);
+        jPanel2.add(homeSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 74, 24, -1));
+
+        addLabel.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-plus-24.png")); // NOI18N
+        addLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addLabelMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addLabelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addLabelMouseExited(evt);
+            }
+        });
+        jPanel2.add(addLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 99, -1, -1));
+
+        addSep.setForeground(new java.awt.Color(255, 255, 255));
+        addSep.setOpaque(true);
+        jPanel2.add(addSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 129, 24, -1));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 320));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, 190, 10));
+
+        close.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-multiply-24.png")); // NOI18N
+        close.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                closeMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                closeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                closeMouseExited(evt);
+            }
+        });
+        jPanel1.add(close, new org.netbeans.lib.awtextra.AbsoluteConstraints(482, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -149,33 +254,50 @@ public class Remove extends javax.swing.JFrame {
             table.clearFile();
             table.clearTable();
             removingEmployee.setText("");
-            JOptionPane.showMessageDialog(null, "Cleared Data", "", JOptionPane.PLAIN_MESSAGE);
-            MainMenu main = new MainMenu();
-            main.setVisible(true);
-            this.dispose();
+//            JOptionPane.showMessageDialog(null, "Cleared Data", "", JOptionPane.PLAIN_MESSAGE);
+//            MainMenu main = new MainMenu();
+//            main.setVisible(true);
+//            this.dispose();
+             Success.t = "Removed All";
+             Success s = new Success();
+             s.setVisible(true);
         } catch (FileNotFoundException e) {
-            JOptionPane.showMessageDialog(null, "Error Occured!", "", JOptionPane.ERROR_MESSAGE);    
+             Error i = new Error();
+            i.setVisible(true);
         } catch (IOException ex) {
-            Logger.getLogger(Remove.class.getName()).log(Level.SEVERE, null, ex);
+             Error i = new Error();
+            i.setVisible(true);
         }
     }//GEN-LAST:event_removeAllActionPerformed
 
     private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
         if(removingEmployee.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Enter Employee Number", "", JOptionPane.PLAIN_MESSAGE);
+         //   JOptionPane.showMessageDialog(null, "Enter Employee Number", "", JOptionPane.PLAIN_MESSAGE);
+          Error i = new Error();
+            i.setVisible(true);
         }
         else if(table.isInTable(Integer.parseInt(removingEmployee.getText()))){
             try {
+            EmployeeInfo x =    table.getFromTable(Integer.parseInt(removingEmployee.getText()));
+            Thread t1 = new Thread(new multithreads(x.email, "Terminate"));
+            t1.start();
                 table.removeFromTable(Integer.parseInt(removingEmployee.getText()));
                 table.writeToFile();    
                 removingEmployee.setText("");
-                JOptionPane.showMessageDialog(null, "Employee Removed", "", JOptionPane.PLAIN_MESSAGE);
+             //   JOptionPane.showMessageDialog(null, "Employee Removed", "", JOptionPane.PLAIN_MESSAGE);
+             Success.t = "Employee Removed";
+             Success s = new Success();
+             s.setVisible(true);
             } catch (IOException ex) {
                 ex.printStackTrace();
+            } catch (Exception ex) {
+                Logger.getLogger(Remove.class.getName()).log(Level.SEVERE, null, ex);
             }
             }      
         else{
-            JOptionPane.showMessageDialog(null, "Employee Not In System", "", JOptionPane.PLAIN_MESSAGE);
+          //  JOptionPane.showMessageDialog(null, "Employee Not In System", "", JOptionPane.PLAIN_MESSAGE);
+           Error i = new Error();
+            i.setVisible(true);
         }
         
     }//GEN-LAST:event_removeButtonActionPerformed
@@ -190,9 +312,91 @@ public class Remove extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jLabel3MouseClicked
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+    private void closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseClicked
         this.dispose();
-    }//GEN-LAST:event_jLabel4MouseClicked
+    }//GEN-LAST:event_closeMouseClicked
+
+    private void editLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editLabelMouseClicked
+        Edit e = new Edit();
+        e.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_editLabelMouseClicked
+
+    private void editLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editLabelMouseEntered
+        editSep.setVisible(true);
+    }//GEN-LAST:event_editLabelMouseEntered
+
+    private void editLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editLabelMouseExited
+        editSep.setVisible(false);
+    }//GEN-LAST:event_editLabelMouseExited
+
+    private void HomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseClicked
+        try {
+            MainMenu m = new MainMenu();
+            m.setVisible(true);
+            this.dispose();
+        } catch (IOException ex) {
+            Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_HomeMouseClicked
+
+    private void HomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseEntered
+        homeSep.setVisible(true);
+    }//GEN-LAST:event_HomeMouseEntered
+
+    private void HomeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseExited
+        homeSep.setVisible(false);
+    }//GEN-LAST:event_HomeMouseExited
+
+    private void settingMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingMouseEntered
+        settingSep.setVisible(true);
+    }//GEN-LAST:event_settingMouseEntered
+
+    private void settingMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingMouseExited
+        settingSep.setVisible(false);
+    }//GEN-LAST:event_settingMouseExited
+
+    private void removeLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeLabelMouseClicked
+        Remove r = new Remove();
+        r.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_removeLabelMouseClicked
+
+    private void removeLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeLabelMouseEntered
+        removeSep.setVisible(true);
+    }//GEN-LAST:event_removeLabelMouseEntered
+
+    private void removeLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeLabelMouseExited
+        removeSep.setVisible(false);
+    }//GEN-LAST:event_removeLabelMouseExited
+
+    private void addLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addLabelMouseClicked
+        try {
+            AddFTE f = new AddFTE();
+            f.setVisible(true);
+            this.dispose();
+        } catch (IOException ex) {
+            Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_addLabelMouseClicked
+
+    private void addLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addLabelMouseEntered
+        addSep.setVisible(true);
+    }//GEN-LAST:event_addLabelMouseEntered
+
+    private void addLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addLabelMouseExited
+        addSep.setVisible(false);
+    }//GEN-LAST:event_addLabelMouseExited
+
+    private void closeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseEntered
+        close.setBackground(Color.red);
+        close.setOpaque(true);
+    }//GEN-LAST:event_closeMouseEntered
+
+    private void closeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseExited
+        close.setBackground(new Color(51,51,51));
+        close.setOpaque(true);
+    }//GEN-LAST:event_closeMouseExited
 
     /**
      * @param args the command line arguments
@@ -230,15 +434,25 @@ public class Remove extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Home;
+    private javax.swing.JLabel addLabel;
+    private javax.swing.JSeparator addSep;
+    private javax.swing.JLabel close;
+    private javax.swing.JLabel editLabel;
+    private javax.swing.JSeparator editSep;
+    private javax.swing.JSeparator homeSep;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton removeAll;
     private javax.swing.JButton removeButton;
+    private javax.swing.JLabel removeLabel;
+    private javax.swing.JSeparator removeSep;
     private javax.swing.JFormattedTextField removingEmployee;
+    private javax.swing.JLabel setting;
+    private javax.swing.JSeparator settingSep;
     // End of variables declaration//GEN-END:variables
 }

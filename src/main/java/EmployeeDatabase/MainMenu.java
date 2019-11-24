@@ -5,6 +5,7 @@
  */
 package EmployeeDatabase;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
@@ -17,7 +18,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
+import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
+import javax.swing.border.Border;
 
 /**
  *
@@ -32,6 +35,7 @@ public class MainMenu extends javax.swing.JFrame {
     public MainMenu() throws IOException {
         initComponents();
         table.displayEmployees();
+           invis();
         initialize();  
         Action action = new AbstractAction(){
     @Override
@@ -42,6 +46,27 @@ public class MainMenu extends javax.swing.JFrame {
     }
 };
         Text.addActionListener(action);
+    }
+ public void invis(){
+     homeSep.setVisible(false);
+     addSep.setVisible(false);
+     editSep.setVisible(false);
+     removeSep.setVisible(false);
+     settingSep.setVisible(false);
+     
+    homeSep.setForeground(Color.white.brighter()); // top line color
+    homeSep.setBackground(Color.white.brighter());
+    addSep.setForeground(Color.white.brighter()); // top line color
+    addSep.setBackground(Color.white.brighter());
+     
+    editSep.setForeground(Color.white.brighter()); // top line color
+    editSep.setBackground(Color.white.brighter());
+     
+    removeSep.setForeground(Color.white.brighter()); // top line color
+    removeSep.setBackground(Color.white.brighter());
+     
+    settingSep.setForeground(Color.white.brighter()); // top line color
+    settingSep.setBackground(Color.white.brighter());  
     }
       public void initialize() throws IOException{
         try{
@@ -56,13 +81,13 @@ public class MainMenu extends javax.swing.JFrame {
                 System.out.println(Arrays.toString(array));
                 if(array[0].equals("FullTime")){
                    FTE fte = new FTE(Integer.parseInt(array[1]), array[2], array[3], Integer.parseInt(array[4]), 
-                           Integer.parseInt(array[5]), Double.parseDouble(array[6]), Double.parseDouble(array[7]), array[8]);
+                           Integer.parseInt(array[5]), Double.parseDouble(array[6]), Double.parseDouble(array[7]), array[8], array[9]);
                    table.addToTable(fte);
                 }
                 else if(array[0].equals("PartTime")){
                     PTE pte = new PTE(Integer.parseInt(array[1]), array[2], array[3], Integer.parseInt(array[4]), 
                            Integer.parseInt(array[5]), Double.parseDouble(array[6]), Double.parseDouble(array[7]),
-                            Double.parseDouble(array[8]), Double.parseDouble(array[9]), array[10]);
+                            Double.parseDouble(array[8]), Double.parseDouble(array[9]), array[10], array[11]);
                    table.addToTable(pte);
                 }
             }
@@ -83,7 +108,18 @@ public class MainMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel8 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        Home = new javax.swing.JLabel();
+        setting = new javax.swing.JLabel();
+        settingSep = new javax.swing.JSeparator();
+        removeLabel = new javax.swing.JLabel();
+        homeSep = new javax.swing.JSeparator();
+        addLabel = new javax.swing.JLabel();
+        addSep = new javax.swing.JSeparator();
+        editLabel = new javax.swing.JLabel();
+        editSep = new javax.swing.JSeparator();
+        removeSep = new javax.swing.JSeparator();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -102,25 +138,104 @@ public class MainMenu extends javax.swing.JFrame {
         DisplayAll = new javax.swing.JButton();
         close = new javax.swing.JLabel();
 
+        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-plus-24.png")); // NOI18N
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 51));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 360, Short.MAX_VALUE)
-        );
+        Home.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-home-24.png")); // NOI18N
+        Home.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                HomeMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                HomeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                HomeMouseExited(evt);
+            }
+        });
+        jPanel1.add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 60, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 360));
+        setting.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-settings-24.png")); // NOI18N
+        setting.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                settingMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                settingMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                settingMouseExited(evt);
+            }
+        });
+        jPanel1.add(setting, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 280, -1, -1));
+
+        settingSep.setOpaque(true);
+        jPanel1.add(settingSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 310, 24, 2));
+
+        removeLabel.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-remove-24 (1).png")); // NOI18N
+        removeLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                removeLabelMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                removeLabelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                removeLabelMouseExited(evt);
+            }
+        });
+        jPanel1.add(removeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 225, -1, -1));
+
+        homeSep.setForeground(new java.awt.Color(255, 255, 255));
+        homeSep.setOpaque(true);
+        jPanel1.add(homeSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 90, 24, 2));
+
+        addLabel.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-plus-24.png")); // NOI18N
+        addLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addLabelMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addLabelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addLabelMouseExited(evt);
+            }
+        });
+        jPanel1.add(addLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 115, -1, -1));
+
+        addSep.setForeground(new java.awt.Color(255, 255, 255));
+        addSep.setOpaque(true);
+        jPanel1.add(addSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 145, 24, 2));
+
+        editLabel.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-edit-24 (2).png")); // NOI18N
+        editLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                editLabelMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                editLabelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                editLabelMouseExited(evt);
+            }
+        });
+        jPanel1.add(editLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 170, -1, -1));
+
+        editSep.setOpaque(true);
+        jPanel1.add(editSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 200, 24, 2));
+
+        removeSep.setOpaque(true);
+        jPanel1.add(removeSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 255, 24, 2));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 360));
 
         jPanel3.setBackground(new java.awt.Color(51, 51, 51));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -129,7 +244,7 @@ public class MainMenu extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Remove Employee");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 150, -1, -1));
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, -1, -1));
 
         RemoveButton.setBackground(new java.awt.Color(255, 255, 255));
         RemoveButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-remove-administrator-100.png")); // NOI18N
@@ -139,17 +254,18 @@ public class MainMenu extends javax.swing.JFrame {
                 RemoveButtonActionPerformed(evt);
             }
         });
-        jPanel3.add(RemoveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 40, 130, 110));
+        jPanel3.add(RemoveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 40, 130, 110));
 
         AddButton.setBackground(new java.awt.Color(255, 255, 255));
         AddButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-add-administrator-100.png")); // NOI18N
+        AddButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         AddButton.setOpaque(false);
         AddButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AddButtonActionPerformed(evt);
             }
         });
-        jPanel3.add(AddButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, 110));
+        jPanel3.add(AddButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, 110));
 
         EditButton.setBackground(new java.awt.Color(255, 255, 255));
         EditButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-edit-account-100.png")); // NOI18N
@@ -159,19 +275,19 @@ public class MainMenu extends javax.swing.JFrame {
                 EditButtonActionPerformed(evt);
             }
         });
-        jPanel3.add(EditButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, -1, 110));
+        jPanel3.add(EditButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, -1, 110));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Add Employee");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Edit Employee");
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, -1, -1));
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, -1, -1));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 660, 210));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 650, 210));
 
         jPanel4.setBackground(new java.awt.Color(51, 51, 51));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -181,7 +297,7 @@ public class MainMenu extends javax.swing.JFrame {
         jLabel1.setText("Employee Database");
         jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 660, 160));
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 650, 160));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -193,17 +309,17 @@ public class MainMenu extends javax.swing.JFrame {
                 TextActionPerformed(evt);
             }
         });
-        jPanel5.add(Text, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 260, 30));
+        jPanel5.add(Text, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 260, 30));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Light", 0, 11)); // NOI18N
         jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-search-32.png")); // NOI18N
-        jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-        jPanel5.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 260, 10));
+        jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        jPanel5.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 260, 10));
 
         LogOut.setBackground(new java.awt.Color(255, 255, 255));
         LogOut.setFont(new java.awt.Font("Segoe UI Light", 0, 11)); // NOI18N
         LogOut.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-account-24.png")); // NOI18N
-        LogOut.setText("Log out");
+        LogOut.setText("User");
         LogOut.setBorder(null);
         LogOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -229,10 +345,16 @@ public class MainMenu extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 closeMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                closeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                closeMouseExited(evt);
+            }
         });
-        jPanel5.add(close, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 10, -1, 30));
+        jPanel5.add(close, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 28, 30));
 
-        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 650, 50));
+        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 640, 60));
 
         pack();
         setLocationRelativeTo(null);
@@ -267,7 +389,7 @@ public class MainMenu extends javax.swing.JFrame {
     private void LogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogOutActionPerformed
         Login l = new Login();
         l.setVisible(true);
-        this.dispose();
+
     }//GEN-LAST:event_LogOutActionPerformed
 
     private void DisplayAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DisplayAllActionPerformed
@@ -279,6 +401,94 @@ public class MainMenu extends javax.swing.JFrame {
     private void closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseClicked
         this.dispose();
     }//GEN-LAST:event_closeMouseClicked
+
+    private void closeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseEntered
+        close.setBackground(Color.red);
+        close.setOpaque(true);
+    }//GEN-LAST:event_closeMouseEntered
+
+    private void closeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseExited
+        close.setBackground(Color.white);
+        close.setOpaque(true);
+    }//GEN-LAST:event_closeMouseExited
+
+    private void editLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editLabelMouseExited
+        editSep.setVisible(false);
+    }//GEN-LAST:event_editLabelMouseExited
+
+    private void editLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editLabelMouseEntered
+        editSep.setVisible(true);
+    }//GEN-LAST:event_editLabelMouseEntered
+
+    private void editLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editLabelMouseClicked
+        Edit e = new Edit();
+        e.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_editLabelMouseClicked
+
+    private void addLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addLabelMouseExited
+        addSep.setVisible(false);
+    }//GEN-LAST:event_addLabelMouseExited
+
+    private void addLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addLabelMouseEntered
+        addSep.setVisible(true);
+    }//GEN-LAST:event_addLabelMouseEntered
+
+    private void addLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addLabelMouseClicked
+        try {
+            AddFTE f = new AddFTE();
+            f.setVisible(true);
+            this.dispose();
+        } catch (IOException ex) {
+            Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_addLabelMouseClicked
+
+    private void removeLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeLabelMouseExited
+        removeSep.setVisible(false);
+    }//GEN-LAST:event_removeLabelMouseExited
+
+    private void removeLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeLabelMouseEntered
+        removeSep.setVisible(true);
+    }//GEN-LAST:event_removeLabelMouseEntered
+
+    private void removeLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeLabelMouseClicked
+        Remove r = new Remove();
+        r.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_removeLabelMouseClicked
+
+    private void settingMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingMouseExited
+        settingSep.setVisible(false);
+    }//GEN-LAST:event_settingMouseExited
+
+    private void settingMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingMouseEntered
+        settingSep.setVisible(true);
+    }//GEN-LAST:event_settingMouseEntered
+
+    private void HomeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseExited
+        homeSep.setVisible(false);
+    }//GEN-LAST:event_HomeMouseExited
+
+    private void HomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseEntered
+        homeSep.setVisible(true);
+    }//GEN-LAST:event_HomeMouseEntered
+
+    private void HomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseClicked
+        try {
+            MainMenu m = new MainMenu();
+            m.setVisible(true);
+            this.dispose();
+        } catch (IOException ex) {
+            Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_HomeMouseClicked
+
+    private void settingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingMouseClicked
+        Settings e = new Settings();
+        e.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_settingMouseClicked
     public void keyPressed(KeyEvent e) {
     if (e.getKeyCode()==KeyEvent.VK_ENTER){
         search();
@@ -291,7 +501,9 @@ public class MainMenu extends javax.swing.JFrame {
         DisplayEmployee display = new DisplayEmployee();
         display.setVisible(true);
         }catch(Exception e){
-              JOptionPane.showMessageDialog(null, "Employee Not In System","", JOptionPane.ERROR_MESSAGE);
+             // JOptionPane.showMessageDialog(null, "Employee Not In System","", JOptionPane.ERROR_MESSAGE);
+              Error i = new Error();
+            i.setVisible(true);
         }
     }
 
@@ -339,20 +551,31 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JButton AddButton;
     private javax.swing.JButton DisplayAll;
     private javax.swing.JButton EditButton;
+    private javax.swing.JLabel Home;
     private javax.swing.JButton LogOut;
     private javax.swing.JButton RemoveButton;
     private javax.swing.JTextField Text;
+    private javax.swing.JLabel addLabel;
+    private javax.swing.JSeparator addSep;
     private javax.swing.JLabel close;
+    private javax.swing.JLabel editLabel;
+    private javax.swing.JSeparator editSep;
+    private javax.swing.JSeparator homeSep;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel removeLabel;
+    private javax.swing.JSeparator removeSep;
+    private javax.swing.JLabel setting;
+    private javax.swing.JSeparator settingSep;
     // End of variables declaration//GEN-END:variables
 }

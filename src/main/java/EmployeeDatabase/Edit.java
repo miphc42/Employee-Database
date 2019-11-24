@@ -5,6 +5,7 @@
  */
 package EmployeeDatabase;
 
+import java.awt.Color;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,6 +24,24 @@ public class Edit extends javax.swing.JFrame {
      */
     public Edit() {
         initComponents();
+        invis();
+    }
+      public void invis(){
+     homeSep.setVisible(false);
+     addSep.setVisible(false);
+     editSep.setVisible(false);
+     removeSep.setVisible(false);
+     settingSep.setVisible(false);   
+    homeSep.setForeground(Color.white.brighter()); // top line color
+    homeSep.setBackground(Color.white.brighter());
+    addSep.setForeground(Color.white.brighter()); // top line color
+    addSep.setBackground(Color.white.brighter());
+    editSep.setForeground(Color.white.brighter()); // top line color
+    editSep.setBackground(Color.white.brighter());
+    removeSep.setForeground(Color.white.brighter()); // top line color
+    removeSep.setBackground(Color.white.brighter());
+    settingSep.setForeground(Color.white.brighter()); // top line color
+    settingSep.setBackground(Color.white.brighter());  
     }
 
     /**
@@ -42,7 +61,17 @@ public class Edit extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        editLabel = new javax.swing.JLabel();
+        editSep = new javax.swing.JSeparator();
+        removeSep = new javax.swing.JSeparator();
+        Home = new javax.swing.JLabel();
+        setting = new javax.swing.JLabel();
+        settingSep = new javax.swing.JSeparator();
+        removeLabel = new javax.swing.JLabel();
+        homeSep = new javax.swing.JSeparator();
+        addLabel = new javax.swing.JLabel();
+        addSep = new javax.swing.JSeparator();
+        close = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -79,6 +108,7 @@ public class Edit extends javax.swing.JFrame {
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 180, 10));
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 51));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-back-24.png")); // NOI18N
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -86,43 +116,117 @@ public class Edit extends javax.swing.JFrame {
                 jLabel3MouseClicked(evt);
             }
         });
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addContainerGap(26, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addContainerGap(295, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 330));
-
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-multiply-24.png")); // NOI18N
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        editLabel.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-edit-24 (2).png")); // NOI18N
+        editLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
+                editLabelMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                editLabelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                editLabelMouseExited(evt);
             }
         });
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, -1, -1));
+        jPanel2.add(editLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 169, -1, -1));
+
+        editSep.setOpaque(true);
+        jPanel2.add(editSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 199, 24, -1));
+
+        removeSep.setOpaque(true);
+        jPanel2.add(removeSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 254, 24, -1));
+
+        Home.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-home-24.png")); // NOI18N
+        Home.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                HomeMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                HomeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                HomeMouseExited(evt);
+            }
+        });
+        jPanel2.add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 59, -1, -1));
+
+        setting.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-settings-24.png")); // NOI18N
+        setting.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                settingMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                settingMouseExited(evt);
+            }
+        });
+        jPanel2.add(setting, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 279, -1, -1));
+
+        settingSep.setOpaque(true);
+        jPanel2.add(settingSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 309, 24, -1));
+
+        removeLabel.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-remove-24 (1).png")); // NOI18N
+        removeLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                removeLabelMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                removeLabelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                removeLabelMouseExited(evt);
+            }
+        });
+        jPanel2.add(removeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 224, -1, -1));
+
+        homeSep.setForeground(new java.awt.Color(255, 255, 255));
+        homeSep.setOpaque(true);
+        jPanel2.add(homeSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 89, 24, -1));
+
+        addLabel.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-plus-24.png")); // NOI18N
+        addLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addLabelMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addLabelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addLabelMouseExited(evt);
+            }
+        });
+        jPanel2.add(addLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 114, -1, -1));
+
+        addSep.setForeground(new java.awt.Color(255, 255, 255));
+        addSep.setOpaque(true);
+        jPanel2.add(addSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 144, 24, -1));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 340));
+
+        close.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-multiply-24.png")); // NOI18N
+        close.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                closeMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                closeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                closeMouseExited(evt);
+            }
+        });
+        jPanel1.add(close, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -150,11 +254,15 @@ public class Edit extends javax.swing.JFrame {
                     this.dispose();
                 }
             }catch(Exception e){
-                e.printStackTrace();
-                JOptionPane.showMessageDialog(null, "Employee Not In System", "", JOptionPane.PLAIN_MESSAGE);
+                 Error i = new Error();
+            i.setVisible(true);
+              //  e.printStackTrace();
+               // JOptionPane.showMessageDialog(null, "Employee Not In System", "", JOptionPane.PLAIN_MESSAGE);
             }
         }else{
-            JOptionPane.showMessageDialog(null, "Enter Employee Number", "", JOptionPane.PLAIN_MESSAGE);
+          //  JOptionPane.showMessageDialog(null, "Enter Employee Number", "", JOptionPane.PLAIN_MESSAGE);
+           Error i = new Error();
+            i.setVisible(true);
         }
     }//GEN-LAST:event_editActionPerformed
 
@@ -164,13 +272,97 @@ public class Edit extends javax.swing.JFrame {
             main.setVisible(true);
             this.dispose();
         } catch (IOException ex) {
-            Logger.getLogger(Edit.class.getName()).log(Level.SEVERE, null, ex);
+          //  Logger.getLogger(Edit.class.getName()).log(Level.SEVERE, null, ex);
+           Error i = new Error();
+            i.setVisible(true);
         }
     }//GEN-LAST:event_jLabel3MouseClicked
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+    private void closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseClicked
         this.dispose();
-    }//GEN-LAST:event_jLabel4MouseClicked
+    }//GEN-LAST:event_closeMouseClicked
+
+    private void editLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editLabelMouseClicked
+        Edit e = new Edit();
+        e.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_editLabelMouseClicked
+
+    private void editLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editLabelMouseEntered
+        editSep.setVisible(true);
+    }//GEN-LAST:event_editLabelMouseEntered
+
+    private void editLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editLabelMouseExited
+        editSep.setVisible(false);
+    }//GEN-LAST:event_editLabelMouseExited
+
+    private void HomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseClicked
+        try {
+            MainMenu m = new MainMenu();
+            m.setVisible(true);
+            this.dispose();
+        } catch (IOException ex) {
+            Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_HomeMouseClicked
+
+    private void HomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseEntered
+        homeSep.setVisible(true);
+    }//GEN-LAST:event_HomeMouseEntered
+
+    private void HomeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseExited
+        homeSep.setVisible(false);
+    }//GEN-LAST:event_HomeMouseExited
+
+    private void settingMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingMouseEntered
+        settingSep.setVisible(true);
+    }//GEN-LAST:event_settingMouseEntered
+
+    private void settingMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingMouseExited
+        settingSep.setVisible(false);
+    }//GEN-LAST:event_settingMouseExited
+
+    private void removeLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeLabelMouseClicked
+        Remove r = new Remove();
+        r.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_removeLabelMouseClicked
+
+    private void removeLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeLabelMouseEntered
+        removeSep.setVisible(true);
+    }//GEN-LAST:event_removeLabelMouseEntered
+
+    private void removeLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeLabelMouseExited
+        removeSep.setVisible(false);
+    }//GEN-LAST:event_removeLabelMouseExited
+
+    private void addLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addLabelMouseClicked
+        try {
+            AddFTE f = new AddFTE();
+            f.setVisible(true);
+            this.dispose();
+        } catch (IOException ex) {
+            Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_addLabelMouseClicked
+
+    private void addLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addLabelMouseEntered
+        addSep.setVisible(true);
+    }//GEN-LAST:event_addLabelMouseEntered
+
+    private void addLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addLabelMouseExited
+        addSep.setVisible(false);
+    }//GEN-LAST:event_addLabelMouseExited
+
+    private void closeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseEntered
+        close.setBackground(Color.red);
+        close.setOpaque(true);
+    }//GEN-LAST:event_closeMouseEntered
+
+    private void closeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseExited
+        close.setBackground(new Color(51,51,51));
+        close.setOpaque(true);
+    }//GEN-LAST:event_closeMouseExited
 
     /**
      * @param args the command line arguments
@@ -208,14 +400,24 @@ public class Edit extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Home;
+    private javax.swing.JLabel addLabel;
+    private javax.swing.JSeparator addSep;
+    private javax.swing.JLabel close;
     private javax.swing.JButton edit;
+    private javax.swing.JLabel editLabel;
+    private javax.swing.JSeparator editSep;
     private javax.swing.JFormattedTextField editText;
+    private javax.swing.JSeparator homeSep;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel removeLabel;
+    private javax.swing.JSeparator removeSep;
+    private javax.swing.JLabel setting;
+    private javax.swing.JSeparator settingSep;
     // End of variables declaration//GEN-END:variables
 }

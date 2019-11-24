@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -34,6 +35,24 @@ public class Display extends javax.swing.JFrame {
      */
     public Display() {
         initComponents();
+        table.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
+        table.getTableHeader().setForeground(Color.BLACK);
+        DefaultTableCellRenderer headerRenderer = new DefaultTableCellRenderer();
+headerRenderer.setBackground(new Color(255, 255, 255));
+DefaultTableCellRenderer headerRenderer2 = new DefaultTableCellRenderer();
+headerRenderer.setForeground(new Color(0, 0, 0));
+for (int i = 0; i < table.getModel().getColumnCount(); i++) {
+        table.getColumnModel().getColumn(i).setHeaderRenderer(headerRenderer2);
+        
+}
+for (int i = 0; i < table.getModel().getColumnCount(); i++) {
+        table.getColumnModel().getColumn(i).setHeaderRenderer(headerRenderer);
+        
+}
+table.setOpaque(false);
+scroll.getViewport().setBackground(new Color(51,51,51));
+
+        
         count2 = 0;
         myHash.displayEmployees();
     Action action = new AbstractAction(){
@@ -43,7 +62,7 @@ public class Display extends javax.swing.JFrame {
         search();
     }
 };
-jScrollPane2.addMouseListener(new java.awt.event.MouseAdapter() {
+table.addMouseListener(new java.awt.event.MouseAdapter() {
 @Override
  public void mouseClicked(java.awt.event.MouseEvent evt) {
     
@@ -51,18 +70,23 @@ jScrollPane2.addMouseListener(new java.awt.event.MouseAdapter() {
     int row = table.rowAtPoint(evt.getPoint());
     int col = table.columnAtPoint(evt.getPoint());
     int count = -1;
+     System.out.println("ROW"+ row);
+    String x =  table.getModel().getValueAt(row, 0).toString();
+    temp = myHash.getFromTable(Integer.parseInt(x));
+     
     
-    for (int i = 0; i < MyHashTable.buckets.length; i++) {
-        for(int c = 0; c < MyHashTable.buckets[i].size();c++){  
-            temp = MyHashTable.buckets[i].get(c);
-            count++;
-        }
-        if(count == row){   
-            break;
-        }
-      
-        
-        }
+//    for (int i = 0; i < MyHashTable.buckets.length; i++) {
+//        for(int c = 0; c < MyHashTable.buckets[i].size();c++){  
+//            temp = MyHashTable.buckets[i].get(c);
+//            count++;
+//        }
+//        if(count == row){   
+//            break;
+//        }
+//      
+//        
+//        }
+        System.out.println(temp.firstName);
         count2++;
         DisplayEmployee display = new DisplayEmployee();
         display.setVisible(true);
@@ -123,11 +147,26 @@ jScrollPane2.addMouseListener(new java.awt.event.MouseAdapter() {
         }catch(Exception e){
             e.printStackTrace();
         }
-        table.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 12));
-        table.getTableHeader().setOpaque(false);
-        table.getTableHeader().setBackground(new Color(255,255,255));
+       invis();
         
         
+    }
+       public void invis(){
+     homeSep.setVisible(false);
+     addSep.setVisible(false);
+     editSep.setVisible(false);
+     removeSep.setVisible(false);
+     settingSep.setVisible(false);   
+    homeSep.setForeground(Color.white.brighter()); // top line color
+    homeSep.setBackground(Color.white.brighter());
+    addSep.setForeground(Color.white.brighter()); // top line color
+    addSep.setBackground(Color.white.brighter());
+    editSep.setForeground(Color.white.brighter()); // top line color
+    editSep.setBackground(Color.white.brighter());
+    removeSep.setForeground(Color.white.brighter()); // top line color
+    removeSep.setBackground(Color.white.brighter());
+    settingSep.setForeground(Color.white.brighter()); // top line color
+    settingSep.setBackground(Color.white.brighter());  
     }
 
     /**
@@ -140,13 +179,24 @@ jScrollPane2.addMouseListener(new java.awt.event.MouseAdapter() {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        backButton = new javax.swing.JButton();
-        EN = new javax.swing.JTextField();
-        search = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        scroll = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
-        jPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel3 = new javax.swing.JPanel();
+        back = new javax.swing.JLabel();
+        editLabel = new javax.swing.JLabel();
+        editSep = new javax.swing.JSeparator();
+        removeSep = new javax.swing.JSeparator();
+        Home = new javax.swing.JLabel();
+        setting = new javax.swing.JLabel();
+        settingSep = new javax.swing.JSeparator();
+        removeLabel = new javax.swing.JLabel();
+        homeSep = new javax.swing.JSeparator();
+        addLabel = new javax.swing.JLabel();
+        addSep = new javax.swing.JSeparator();
+        jLabel1 = new javax.swing.JLabel();
+        EN = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Display / Search");
@@ -155,54 +205,15 @@ jScrollPane2.addMouseListener(new java.awt.event.MouseAdapter() {
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        backButton.setText("Back");
-        backButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backButtonActionPerformed(evt);
-            }
-        });
+        scroll.setBorder(null);
 
-        search.setText("Search");
-        search.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(EN, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(112, 112, 112))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(backButton)
-                        .addComponent(EN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(search)))
-                .addGap(348, 348, 348))
-        );
-
+        table.setBackground(new java.awt.Color(51, 51, 51));
+        table.setForeground(new java.awt.Color(255, 255, 255));
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "Employee ID", "First Name", "Last Name", "Gender", "Salary", "FTE/PTE"
@@ -225,7 +236,8 @@ jScrollPane2.addMouseListener(new java.awt.event.MouseAdapter() {
         });
         table.setFocusable(false);
         table.setGridColor(new java.awt.Color(255, 255, 255));
-        jScrollPane2.setViewportView(table);
+        table.setRowHeight(25);
+        scroll.setViewportView(table);
         if (table.getColumnModel().getColumnCount() > 0) {
             table.getColumnModel().getColumn(0).setResizable(false);
             table.getColumnModel().getColumn(1).setResizable(false);
@@ -235,54 +247,215 @@ jScrollPane2.addMouseListener(new java.awt.event.MouseAdapter() {
             table.getColumnModel().getColumn(5).setResizable(false);
         }
 
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 730, 390));
+
+        jPanel3.setBackground(new java.awt.Color(0, 0, 51));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        back.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-back-24.png")); // NOI18N
+        back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backMouseClicked(evt);
+            }
+        });
+        jPanel3.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 40, -1));
+
+        editLabel.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-edit-24 (2).png")); // NOI18N
+        editLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                editLabelMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                editLabelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                editLabelMouseExited(evt);
+            }
+        });
+        jPanel3.add(editLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 214, -1, -1));
+
+        editSep.setOpaque(true);
+        jPanel3.add(editSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 244, 24, -1));
+
+        removeSep.setOpaque(true);
+        jPanel3.add(removeSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 299, 24, -1));
+
+        Home.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-home-24.png")); // NOI18N
+        Home.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                HomeMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                HomeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                HomeMouseExited(evt);
+            }
+        });
+        jPanel3.add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 104, -1, -1));
+
+        setting.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-settings-24.png")); // NOI18N
+        setting.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                settingMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                settingMouseExited(evt);
+            }
+        });
+        jPanel3.add(setting, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 324, -1, -1));
+
+        settingSep.setOpaque(true);
+        jPanel3.add(settingSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 354, 24, -1));
+
+        removeLabel.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-remove-24 (1).png")); // NOI18N
+        removeLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                removeLabelMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                removeLabelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                removeLabelMouseExited(evt);
+            }
+        });
+        jPanel3.add(removeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 269, -1, -1));
+
+        homeSep.setForeground(new java.awt.Color(255, 255, 255));
+        homeSep.setOpaque(true);
+        jPanel3.add(homeSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 134, 24, -1));
+
+        addLabel.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-plus-24.png")); // NOI18N
+        addLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addLabelMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addLabelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addLabelMouseExited(evt);
+            }
+        });
+        jPanel3.add(addLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 159, -1, -1));
+
+        addSep.setForeground(new java.awt.Color(255, 255, 255));
+        addSep.setOpaque(true);
+        jPanel3.add(addSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 189, 24, -1));
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 460));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 28)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Employee Data Table");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, 50));
+
+        EN.setBackground(new java.awt.Color(51, 51, 51));
+        EN.setForeground(new java.awt.Color(255, 255, 255));
+        EN.setBorder(null);
+        jPanel1.add(EN, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, 250, 30));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 50, 250, 20));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-search-30 (1).png")); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, -1, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 11, Short.MAX_VALUE)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+    private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
         try {
-            MainMenu mainMenu = new MainMenu();
-            mainMenu.setVisible(true);
+            MainMenu m = new MainMenu();
+            m.setVisible(true);
             this.dispose();
         } catch (IOException ex) {
             Logger.getLogger(Display.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_backButtonActionPerformed
+    }//GEN-LAST:event_backMouseClicked
 
-    private void searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchActionPerformed
-        search();
-    }//GEN-LAST:event_searchActionPerformed
+    private void editLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editLabelMouseClicked
+        Edit e = new Edit();
+        e.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_editLabelMouseClicked
+
+    private void editLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editLabelMouseEntered
+        editSep.setVisible(true);
+    }//GEN-LAST:event_editLabelMouseEntered
+
+    private void editLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editLabelMouseExited
+        editSep.setVisible(false);
+    }//GEN-LAST:event_editLabelMouseExited
+
+    private void HomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseClicked
+        try {
+            MainMenu m = new MainMenu();
+            m.setVisible(true);
+            this.dispose();
+        } catch (IOException ex) {
+            Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_HomeMouseClicked
+
+    private void HomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseEntered
+        homeSep.setVisible(true);
+    }//GEN-LAST:event_HomeMouseEntered
+
+    private void HomeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseExited
+        homeSep.setVisible(false);
+    }//GEN-LAST:event_HomeMouseExited
+
+    private void settingMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingMouseEntered
+        settingSep.setVisible(true);
+    }//GEN-LAST:event_settingMouseEntered
+
+    private void settingMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingMouseExited
+        settingSep.setVisible(false);
+    }//GEN-LAST:event_settingMouseExited
+
+    private void removeLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeLabelMouseClicked
+        Remove r = new Remove();
+        r.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_removeLabelMouseClicked
+
+    private void removeLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeLabelMouseEntered
+        removeSep.setVisible(true);
+    }//GEN-LAST:event_removeLabelMouseEntered
+
+    private void removeLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeLabelMouseExited
+        removeSep.setVisible(false);
+    }//GEN-LAST:event_removeLabelMouseExited
+
+    private void addLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addLabelMouseClicked
+        try {
+            AddFTE f = new AddFTE();
+            f.setVisible(true);
+            this.dispose();
+        } catch (IOException ex) {
+            Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_addLabelMouseClicked
+
+    private void addLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addLabelMouseEntered
+        addSep.setVisible(true);
+    }//GEN-LAST:event_addLabelMouseEntered
+
+    private void addLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addLabelMouseExited
+        addSep.setVisible(false);
+    }//GEN-LAST:event_addLabelMouseExited
 
     public void keyPressed(KeyEvent e) {
     if (e.getKeyCode()==KeyEvent.VK_ENTER){
@@ -296,7 +469,9 @@ jScrollPane2.addMouseListener(new java.awt.event.MouseAdapter() {
         DisplayEmployee display = new DisplayEmployee();
         display.setVisible(true);
         }catch(Exception e){
-              JOptionPane.showMessageDialog(null, "Employee Not In System","", JOptionPane.ERROR_MESSAGE);
+             // JOptionPane.showMessageDialog(null, "Employee Not In System","", JOptionPane.ERROR_MESSAGE);
+              Error i = new Error();
+            i.setVisible(true);
         }
         
 //        try{
@@ -359,12 +534,23 @@ jScrollPane2.addMouseListener(new java.awt.event.MouseAdapter() {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField EN;
-    private javax.swing.JButton backButton;
+    private javax.swing.JLabel Home;
+    private javax.swing.JLabel addLabel;
+    private javax.swing.JSeparator addSep;
+    private javax.swing.JLabel back;
+    private javax.swing.JLabel editLabel;
+    private javax.swing.JSeparator editSep;
+    private javax.swing.JSeparator homeSep;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JButton search;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel removeLabel;
+    private javax.swing.JSeparator removeSep;
+    private javax.swing.JScrollPane scroll;
+    private javax.swing.JLabel setting;
+    private javax.swing.JSeparator settingSep;
     private javax.swing.JTable table;
     // End of variables declaration//GEN-END:variables
 }

@@ -17,6 +17,7 @@ public class EmployeeInfo {
     int workLocation;
     double deductionRate;
     public String image;
+    public String email;
 
     public EmployeeInfo() {
         employeeNumber = -1;
@@ -25,9 +26,10 @@ public class EmployeeInfo {
         gender = -1;
         workLocation = -1;
         deductionRate = -1;
+        email = "";
     }
 
-    public EmployeeInfo(int employeeNumber, String firstName, String lastName, int gender, int workLocation, double deductionRate, String image) {
+    public EmployeeInfo(int employeeNumber, String firstName, String lastName, int gender, int workLocation, double deductionRate, String image, String email) {
         this.employeeNumber = employeeNumber;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -35,6 +37,7 @@ public class EmployeeInfo {
         this.workLocation = workLocation;
         this.deductionRate = deductionRate;
         this.image = image;
+        this.email = email;
     }
 }
 

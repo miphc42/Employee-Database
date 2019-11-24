@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package EmployeeDatabase;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Frame;
 import java.awt.Image;
@@ -48,6 +49,7 @@ public class DisplayEmployee extends javax.swing.JFrame {
         try{
         String partfull = "";
         double salary = 0;
+            System.out.println(temp.firstName);
         if(temp instanceof FTE){
             fte = (FTE) temp;
             partfull = "Full Time";
@@ -60,7 +62,8 @@ public class DisplayEmployee extends javax.swing.JFrame {
            
             
         }
-        label.setText("<html>"+partfull+" Employee"+"<br/><br/>"+"Employee Number:  "+temp.employeeNumber+"<br/>"+"First Name:  "+temp.firstName+"<br/>"+"Last Name:  "+temp.lastName+"<br/>"+"Gender:  "+gender+"<br/>"+"Annual Salary:  "+"$"+salary+"<br/>"+"</html>");
+        port.setText(partfull+" Employee");
+        label.setText("<html>"+"<br/>"+"Employee Number:  "+temp.employeeNumber+"<br/>"+"First Name:  "+temp.firstName+"<br/>"+"Last Name:  "+temp.lastName+"<br/>"+"Gender:  "+gender+"<br/>"+"Annual Salary:  "+"$"+salary+"<br/>"+"</html>");
         BufferedImage originalImage = ImageIO.read(new File(temp.image));
         ImageIcon imageIcon = new ImageIcon(originalImage); // load the image to a imageIcon
         Image image1 = imageIcon.getImage(); // transform it 
@@ -84,11 +87,17 @@ public class DisplayEmployee extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        label = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         picture = new javax.swing.JLabel();
-        edit = new javax.swing.JButton();
+        label = new javax.swing.JLabel();
+        close = new javax.swing.JLabel();
+        goEdit = new javax.swing.JLabel();
+        port = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        goEmail = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setUndecorated(true);
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
@@ -96,40 +105,69 @@ public class DisplayEmployee extends javax.swing.JFrame {
             }
         });
 
-        label.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(255, 255, 255)));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        edit.setText("Edit");
-        edit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editActionPerformed(evt);
+        picture.setBackground(new java.awt.Color(255, 255, 255));
+        picture.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 255)));
+        jPanel1.add(picture, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 120, 114));
+
+        label.setBackground(new java.awt.Color(51, 51, 51));
+        label.setFont(new java.awt.Font("Segoe UI Light", 0, 13)); // NOI18N
+        label.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(label, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 224, 140));
+
+        close.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-multiply-24.png")); // NOI18N
+        close.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                closeMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                closeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                closeMouseExited(evt);
             }
         });
+        jPanel1.add(close, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 3, 30, 30));
+
+        goEdit.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-edit-24 (1).png")); // NOI18N
+        goEdit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                goEditMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                goEditMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                goEditMouseExited(evt);
+            }
+        });
+        jPanel1.add(goEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 3, 30, 30));
+
+        port.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        port.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(port, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 150, 30));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, -1, -1));
+
+        goEmail.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-send-email-24.png")); // NOI18N
+        goEmail.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                goEmailMouseClicked(evt);
+            }
+        });
+        jPanel1.add(goEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 4, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(picture, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(edit, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(33, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(edit, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(picture, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
         );
 
         pack();
@@ -140,8 +178,12 @@ public class DisplayEmployee extends javax.swing.JFrame {
         Display.count2 = 0;
     }//GEN-LAST:event_formWindowClosed
 
-    private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
-        java.awt.Window win[] = java.awt.Window.getWindows();
+    private void closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_closeMouseClicked
+
+    private void goEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_goEditMouseClicked
+          java.awt.Window win[] = java.awt.Window.getWindows();
         for (int i = 0; i < win.length; i++) {
             win[i].dispose();
         }
@@ -167,7 +209,34 @@ public class DisplayEmployee extends javax.swing.JFrame {
                 Logger.getLogger(DisplayEmployee.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }//GEN-LAST:event_editActionPerformed
+    }//GEN-LAST:event_goEditMouseClicked
+
+    private void closeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseEntered
+        close.setBackground(Color.red);
+        close.setOpaque(true);
+    }//GEN-LAST:event_closeMouseEntered
+
+    private void closeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseExited
+        close.setBackground(new Color(51,51,51));
+        close.setOpaque(true);
+    }//GEN-LAST:event_closeMouseExited
+
+    private void goEditMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_goEditMouseEntered
+        goEdit.setBackground(Color.red);
+        goEdit.setOpaque(true);
+    }//GEN-LAST:event_goEditMouseEntered
+
+    private void goEditMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_goEditMouseExited
+        goEdit.setBackground(new Color(51,51,51));
+        goEdit.setOpaque(true);
+    }//GEN-LAST:event_goEditMouseExited
+
+    private void goEmailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_goEmailMouseClicked
+        Email e = new Email();
+        e.setVisible(true);
+        MyHashTable.email = temp.email;
+        //this.dispose();
+    }//GEN-LAST:event_goEmailMouseClicked
 
     /**
      * @param args the command line arguments
@@ -205,8 +274,13 @@ public class DisplayEmployee extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton edit;
+    private javax.swing.JLabel close;
+    private javax.swing.JLabel goEdit;
+    private javax.swing.JLabel goEmail;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel label;
     private javax.swing.JLabel picture;
+    private javax.swing.JLabel port;
     // End of variables declaration//GEN-END:variables
 }

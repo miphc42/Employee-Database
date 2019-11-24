@@ -14,6 +14,10 @@ import java.util.*;
 import java.io.*;
 public class MyHashTable {
     public static boolean fullOrPart = true;
+    public static String file = "";
+    public static String email ="";
+    public static String subject = "";
+    public static String text = "";
     // ATTRIBUTES
     // buckets is an array of ArrayList.  Each item in an ArrayList is a StudentInfo
     // object holding a reference value pointing to a student.
@@ -110,11 +114,11 @@ public class MyHashTable {
                     EmployeeInfo temp = buckets[i].get(c);
                     if(temp instanceof FTE){
                         FTE fte= (FTE) temp;
-                        bw.write("FullTime"+","+fte.employeeNumber+","+fte.firstName+","+fte.lastName+","+fte.gender+","+fte.workLocation+","+fte.deductionRate+","+fte.annualSalary+","+fte.image+"\n");
+                        bw.write("FullTime"+","+fte.employeeNumber+","+fte.firstName+","+fte.lastName+","+fte.gender+","+fte.workLocation+","+fte.deductionRate+","+fte.annualSalary+","+fte.image+","+fte.email+"\n");
                     }
                     else if(temp instanceof PTE){
                         PTE pte = (PTE) temp;
-                        bw.write("PartTime"+","+pte.employeeNumber+","+pte.firstName+","+pte.lastName+","+pte.gender+","+pte.workLocation+","+pte.deductionRate+","+pte.hourlyWage+","+pte.hoursPerWeek+","+pte.weeksPerYear+","+pte.image+"\n");
+                        bw.write("PartTime"+","+pte.employeeNumber+","+pte.firstName+","+pte.lastName+","+pte.gender+","+pte.workLocation+","+pte.deductionRate+","+pte.hourlyWage+","+pte.hoursPerWeek+","+pte.weeksPerYear+","+pte.image+","+pte.email+"\n");
                     }
                 }
             }

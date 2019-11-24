@@ -1,0 +1,4 @@
+FullTime,1,1,1,0,1,1.0,1.0,src\main\java\EmployeeDatabase\profile.jpg,4hmin2@gmail.com
+PartTime,2,2,2,0,2,2.0,2.0,2.0,2.0,src\main\java\EmployeeDatabase\profile.jpg,4hmin2@gmail.com
+PartTime,3,3,3,0,3,3.0,3.0,3.0,3.0,src\main\java\EmployeeDatabase\profile.jpg,718552@pdsb.net
+FullTime,4,4,4,0,4,4.0,4.0,C:\Users\miphc\Downloads\icons8-account-100.png,718552@pdsb,net

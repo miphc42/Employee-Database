@@ -23,9 +23,10 @@ import javax.swing.JOptionPane;
  *
  * @author miphc
  */
-public class AddPTE extends javax.swing.JFrame {
+public class AddPTE extends javax.swing.JFrame{
     MyHashTable myHashTable = new MyHashTable();
     public static int saveOrEditP = 0;
+    
     PTE partTime;
     String filename;
 
@@ -35,6 +36,10 @@ public class AddPTE extends javax.swing.JFrame {
     public AddPTE() throws IOException {
         initComponents();
         filename = "src\\main\\java\\EmployeeDatabase\\profile.jpg";
+        if(!MyHashTable.file.equals("")){
+             filename = MyHashTable.file;
+              
+        }
         BufferedImage originalImage = ImageIO.read(new File(filename)); 
         ImageIcon imageIcon = new ImageIcon(originalImage); // load the image to a imageIcon
         Image image1 = imageIcon.getImage(); // transform it 
@@ -44,6 +49,24 @@ public class AddPTE extends javax.swing.JFrame {
        Male.setSelected(true);
        choice1.addItem("Part Time");
        choice1.addItem("Full Time");
+       invis();
+    }
+       public void invis(){
+     homeSep.setVisible(false);
+     addSep.setVisible(false);
+     editSep.setVisible(false);
+     removeSep.setVisible(false);
+     settingSep.setVisible(false);   
+    homeSep.setForeground(Color.white.brighter()); // top line color
+    homeSep.setBackground(Color.white.brighter());
+    addSep.setForeground(Color.white.brighter()); // top line color
+    addSep.setBackground(Color.white.brighter());
+    editSep.setForeground(Color.white.brighter()); // top line color
+    editSep.setBackground(Color.white.brighter());
+    removeSep.setForeground(Color.white.brighter()); // top line color
+    removeSep.setBackground(Color.white.brighter());
+    settingSep.setForeground(Color.white.brighter()); // top line color
+    settingSep.setBackground(Color.white.brighter());  
     }
 
     /**
@@ -92,8 +115,21 @@ public class AddPTE extends javax.swing.JFrame {
         jSeparator8 = new javax.swing.JSeparator();
         jPanel2 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
+        editLabel = new javax.swing.JLabel();
+        editSep = new javax.swing.JSeparator();
+        Home = new javax.swing.JLabel();
+        removeSep = new javax.swing.JSeparator();
+        setting = new javax.swing.JLabel();
+        settingSep = new javax.swing.JSeparator();
+        removeLabel = new javax.swing.JLabel();
+        homeSep = new javax.swing.JSeparator();
+        addLabel = new javax.swing.JLabel();
+        addSep = new javax.swing.JSeparator();
         choice1 = new java.awt.Choice();
-        jLabel14 = new javax.swing.JLabel();
+        close = new javax.swing.JLabel();
+        email1 = new javax.swing.JTextField();
+        Email = new javax.swing.JLabel();
+        jSeparator9 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Add Part Time Employee");
@@ -121,19 +157,19 @@ public class AddPTE extends javax.swing.JFrame {
                 saveActionPerformed(evt);
             }
         });
-        jPanel1.add(save, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 380, 150, 40));
+        jPanel1.add(save, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 420, 150, 30));
 
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Weeks");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 340, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 380, -1, -1));
 
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Hours/Week");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, -1, -1));
 
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Wage");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 340, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 380, -1, -1));
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("First Name");
@@ -142,19 +178,19 @@ public class AddPTE extends javax.swing.JFrame {
         L.setBackground(new java.awt.Color(51, 51, 51));
         L.setForeground(new java.awt.Color(255, 255, 255));
         L.setBorder(null);
-        jPanel1.add(L, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, 329, 25));
+        jPanel1.add(L, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, 329, 25));
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Gender");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 290, -1, -1));
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Location");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, -1, -1));
 
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Deductions");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 290, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, -1, -1));
 
         FN.setBackground(new java.awt.Color(51, 51, 51));
         FN.setForeground(new java.awt.Color(255, 255, 255));
@@ -178,22 +214,22 @@ public class AddPTE extends javax.swing.JFrame {
         w.setBackground(new java.awt.Color(51, 51, 51));
         w.setForeground(new java.awt.Color(255, 255, 255));
         w.setBorder(null);
-        jPanel1.add(w, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, 60, 30));
+        jPanel1.add(w, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 370, 60, 30));
 
         h.setBackground(new java.awt.Color(51, 51, 51));
         h.setForeground(new java.awt.Color(255, 255, 255));
         h.setBorder(null);
-        jPanel1.add(h, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, 60, 30));
+        jPanel1.add(h, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, 60, 30));
 
         weeks.setBackground(new java.awt.Color(51, 51, 51));
         weeks.setForeground(new java.awt.Color(255, 255, 255));
         weeks.setBorder(null);
-        jPanel1.add(weeks, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 330, 70, 30));
+        jPanel1.add(weeks, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 370, 70, 30));
 
         D.setBackground(new java.awt.Color(51, 51, 51));
         D.setForeground(new java.awt.Color(255, 255, 255));
         D.setBorder(null);
-        jPanel1.add(D, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, 329, 27));
+        jPanel1.add(D, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, 329, 27));
 
         Warning.setForeground(new java.awt.Color(255, 51, 51));
         jPanel1.add(Warning, new org.netbeans.lib.awtextra.AbsoluteConstraints(412, 42, -1, -1));
@@ -213,7 +249,7 @@ public class AddPTE extends javax.swing.JFrame {
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, 329, 10));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, 330, -1));
         jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 330, -1));
-        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, 330, 10));
+        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 330, 10));
 
         Male.setBackground(new java.awt.Color(51, 51, 51));
         Male.addActionListener(new java.awt.event.ActionListener() {
@@ -221,7 +257,7 @@ public class AddPTE extends javax.swing.JFrame {
                 MaleActionPerformed(evt);
             }
         });
-        jPanel1.add(Male, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, -1, -1));
+        jPanel1.add(Male, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 290, -1, -1));
 
         Female.setBackground(new java.awt.Color(51, 51, 51));
         Female.addActionListener(new java.awt.event.ActionListener() {
@@ -229,21 +265,22 @@ public class AddPTE extends javax.swing.JFrame {
                 FemaleActionPerformed(evt);
             }
         });
-        jPanel1.add(Female, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, -1, -1));
+        jPanel1.add(Female, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, -1, -1));
 
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Male");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 250, -1, 20));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 290, -1, 20));
 
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Female");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 250, -1, 20));
-        jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 330, -1));
-        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 360, 60, 10));
-        jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 360, 60, 10));
-        jPanel1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 360, 70, 10));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, -1, 20));
+        jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, 330, -1));
+        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, 60, 10));
+        jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 400, 60, 10));
+        jPanel1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 400, 70, 10));
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 51));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel13.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-back-24.png")); // NOI18N
         jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -251,25 +288,93 @@ public class AddPTE extends javax.swing.JFrame {
                 jLabel13MouseClicked(evt);
             }
         });
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 40, 33));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel13)
-                .addContainerGap(26, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel13)
-                .addContainerGap(405, Short.MAX_VALUE))
-        );
+        editLabel.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-edit-24 (2).png")); // NOI18N
+        editLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                editLabelMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                editLabelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                editLabelMouseExited(evt);
+            }
+        });
+        jPanel2.add(editLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 199, -1, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 440));
+        editSep.setOpaque(true);
+        jPanel2.add(editSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 229, 24, -1));
+
+        Home.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-home-24.png")); // NOI18N
+        Home.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                HomeMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                HomeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                HomeMouseExited(evt);
+            }
+        });
+        jPanel2.add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 89, -1, -1));
+
+        removeSep.setOpaque(true);
+        jPanel2.add(removeSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 284, 24, -1));
+
+        setting.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-settings-24.png")); // NOI18N
+        setting.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                settingMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                settingMouseExited(evt);
+            }
+        });
+        jPanel2.add(setting, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 309, -1, -1));
+
+        settingSep.setOpaque(true);
+        jPanel2.add(settingSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 339, 24, -1));
+
+        removeLabel.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-remove-24 (1).png")); // NOI18N
+        removeLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                removeLabelMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                removeLabelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                removeLabelMouseExited(evt);
+            }
+        });
+        jPanel2.add(removeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 254, -1, -1));
+
+        homeSep.setForeground(new java.awt.Color(255, 255, 255));
+        homeSep.setOpaque(true);
+        jPanel2.add(homeSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 119, 24, -1));
+
+        addLabel.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-plus-24.png")); // NOI18N
+        addLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addLabelMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addLabelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addLabelMouseExited(evt);
+            }
+        });
+        jPanel2.add(addLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 144, -1, -1));
+
+        addSep.setForeground(new java.awt.Color(255, 255, 255));
+        addSep.setOpaque(true);
+        jPanel2.add(addSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 174, 24, -1));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 480));
 
         choice1.setFocusable(false);
         choice1.setForeground(new java.awt.Color(51, 51, 51));
@@ -280,23 +385,39 @@ public class AddPTE extends javax.swing.JFrame {
         });
         jPanel1.add(choice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 20, 120, -1));
 
-        jLabel14.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-multiply-24.png")); // NOI18N
-        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
+        close.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-multiply-24.png")); // NOI18N
+        close.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel14MouseClicked(evt);
+                closeMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                closeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                closeMouseExited(evt);
             }
         });
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 10, -1, -1));
+        jPanel1.add(close, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 0, -1, -1));
+
+        email1.setBackground(new java.awt.Color(51, 51, 51));
+        email1.setForeground(new java.awt.Color(255, 255, 255));
+        email1.setBorder(null);
+        jPanel1.add(email1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, 329, 25));
+
+        Email.setForeground(new java.awt.Color(255, 255, 255));
+        Email.setText("Email");
+        jPanel1.add(Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, -1, -1));
+        jPanel1.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, 330, 10));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE)
         );
 
         pack();
@@ -316,13 +437,20 @@ public class AddPTE extends javax.swing.JFrame {
             filename = "src\\main\\java\\EmployeeDatabase\\profile.jpg";
         }
         partTime = new PTE(Integer.parseInt(EN.getText()), FN.getText(), LN.getText(), gender, Integer.parseInt(L.getText()), Double.parseDouble(D.getText()), Double.parseDouble(w.getText()),
-        Double.parseDouble(h.getText()),Double.parseDouble(weeks.getText()), filename);
+        Double.parseDouble(h.getText()),Double.parseDouble(weeks.getText()), filename, email1.getText());
+        Thread t1 = new Thread(new multithreads(email1.getText(), FN.getText()));
+            t1.start();
         myHashTable.addToTable(partTime);
         myHashTable.writeToFile();
         clearFields();
-        JOptionPane.showMessageDialog(null, "Employee Added", "", JOptionPane.PLAIN_MESSAGE);
+        Success.t = "Employee Added";
+        Success s = new Success();
+            s.setVisible(true);
+//        JOptionPane.showMessageDialog(null, "Employee Added", "", JOptionPane.PLAIN_MESSAGE);
         }catch(Exception e){
-         JOptionPane.showMessageDialog(null, "Enter Valid Values", "", JOptionPane.WARNING_MESSAGE);
+//         JOptionPane.showMessageDialog(null, "Enter Valid Values", "", JOptionPane.WARNING_MESSAGE);
+            Error i = new Error();
+            i.setVisible(true);
         }
     }//GEN-LAST:event_saveActionPerformed
 
@@ -342,7 +470,7 @@ public class AddPTE extends javax.swing.JFrame {
             //close database connection
       System.out.println("A");
         } catch (Exception ex) {
-            Logger.getLogger(EditEmployee.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Edit.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_AddPictureActionPerformed
 
@@ -360,6 +488,7 @@ public class AddPTE extends javax.swing.JFrame {
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
         try {
+            MyHashTable.file = "";
             MainMenu m = new MainMenu();
             m.setVisible(true);
             this.dispose();
@@ -370,17 +499,101 @@ public class AddPTE extends javax.swing.JFrame {
 
     private void choice1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_choice1ItemStateChanged
         try {
+            MyHashTable.file = filename;
             AddFTE fte = new AddFTE();
             fte.setVisible(true);
+            
             this.dispose();
         } catch (IOException ex) {
             Logger.getLogger(AddPTE.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_choice1ItemStateChanged
 
-    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
+    private void closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseClicked
         this.dispose();
-    }//GEN-LAST:event_jLabel14MouseClicked
+    }//GEN-LAST:event_closeMouseClicked
+
+    private void editLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editLabelMouseClicked
+        Edit e = new Edit();
+        e.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_editLabelMouseClicked
+
+    private void editLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editLabelMouseEntered
+        editSep.setVisible(true);
+    }//GEN-LAST:event_editLabelMouseEntered
+
+    private void editLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editLabelMouseExited
+        editSep.setVisible(false);
+    }//GEN-LAST:event_editLabelMouseExited
+
+    private void HomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseClicked
+        try {
+            MainMenu m = new MainMenu();
+            m.setVisible(true);
+            this.dispose();
+        } catch (IOException ex) {
+            Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_HomeMouseClicked
+
+    private void HomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseEntered
+        homeSep.setVisible(true);
+    }//GEN-LAST:event_HomeMouseEntered
+
+    private void HomeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseExited
+        homeSep.setVisible(false);
+    }//GEN-LAST:event_HomeMouseExited
+
+    private void settingMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingMouseEntered
+        settingSep.setVisible(true);
+    }//GEN-LAST:event_settingMouseEntered
+
+    private void settingMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingMouseExited
+        settingSep.setVisible(false);
+    }//GEN-LAST:event_settingMouseExited
+
+    private void removeLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeLabelMouseClicked
+        Remove r = new Remove();
+        r.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_removeLabelMouseClicked
+
+    private void removeLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeLabelMouseEntered
+        removeSep.setVisible(true);
+    }//GEN-LAST:event_removeLabelMouseEntered
+
+    private void removeLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeLabelMouseExited
+        removeSep.setVisible(false);
+    }//GEN-LAST:event_removeLabelMouseExited
+
+    private void addLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addLabelMouseClicked
+        try {
+            AddFTE f = new AddFTE();
+            f.setVisible(true);
+            this.dispose();
+        } catch (IOException ex) {
+            Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_addLabelMouseClicked
+
+    private void addLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addLabelMouseEntered
+        addSep.setVisible(true);
+    }//GEN-LAST:event_addLabelMouseEntered
+
+    private void addLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addLabelMouseExited
+        addSep.setVisible(false);
+    }//GEN-LAST:event_addLabelMouseExited
+
+    private void closeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseEntered
+        close.setBackground(Color.red);
+        close.setOpaque(true);
+    }//GEN-LAST:event_closeMouseEntered
+
+    private void closeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseExited
+        close.setBackground(new Color(51,51,51));
+        close.setOpaque(true);
+    }//GEN-LAST:event_closeMouseExited
     private void clearFields() throws IOException{
         EN.setText("");
         FN.setText("");
@@ -388,8 +601,10 @@ public class AddPTE extends javax.swing.JFrame {
         L.setText("");
         D.setText("");
         w.setText("");
+         email1.setText("");
         h.setText("");
         weeks.setText("");
+        MyHashTable.file = "";
         Male.setSelected(true);
                 BufferedImage originalImage = ImageIO.read(new File("src\\main\\java\\EmployeeDatabase\\profile.jpg"));
         ImageIcon imageIcon = new ImageIcon(originalImage); // load the image to a imageIcon
@@ -441,20 +656,28 @@ public class AddPTE extends javax.swing.JFrame {
     private javax.swing.JButton AddPicture;
     private javax.swing.JTextField D;
     private javax.swing.JTextField EN;
+    private javax.swing.JLabel Email;
     private javax.swing.JTextField FN;
     private javax.swing.JRadioButton Female;
+    private javax.swing.JLabel Home;
     private javax.swing.JTextField L;
     private javax.swing.JTextField LN;
     private javax.swing.JRadioButton Male;
     private javax.swing.JLabel Warning;
+    private javax.swing.JLabel addLabel;
+    private javax.swing.JSeparator addSep;
     private java.awt.Choice choice1;
+    private javax.swing.JLabel close;
+    private javax.swing.JLabel editLabel;
+    private javax.swing.JSeparator editSep;
+    private javax.swing.JTextField email1;
     private javax.swing.JTextField h;
+    private javax.swing.JSeparator homeSep;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -473,8 +696,13 @@ public class AddPTE extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator9;
     private javax.swing.JLabel profilePic;
+    private javax.swing.JLabel removeLabel;
+    private javax.swing.JSeparator removeSep;
     private javax.swing.JButton save;
+    private javax.swing.JLabel setting;
+    private javax.swing.JSeparator settingSep;
     private javax.swing.JTextField w;
     private javax.swing.JTextField weeks;
     // End of variables declaration//GEN-END:variables
