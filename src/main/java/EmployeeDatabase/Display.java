@@ -141,7 +141,7 @@ table.addMouseListener(new java.awt.event.MouseAdapter() {
                         salary =   ((FTE) x).annualSalary;
                         
                     }
-                    model.insertRow(model.getRowCount(), new Object[]{x.employeeNumber, x.firstName, x.lastName, gender1, salary, temp});  
+                    model.insertRow(model.getRowCount(), new Object[]{x.employeeNumber, x.firstName, x.lastName, gender1, "$"+salary, temp});  
                 }
             }
         }catch(Exception e){
@@ -183,9 +183,6 @@ table.addMouseListener(new java.awt.event.MouseAdapter() {
         table = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         back = new javax.swing.JLabel();
-        editLabel = new javax.swing.JLabel();
-        editSep = new javax.swing.JSeparator();
-        removeSep = new javax.swing.JSeparator();
         Home = new javax.swing.JLabel();
         setting = new javax.swing.JLabel();
         settingSep = new javax.swing.JSeparator();
@@ -193,6 +190,9 @@ table.addMouseListener(new java.awt.event.MouseAdapter() {
         homeSep = new javax.swing.JSeparator();
         addLabel = new javax.swing.JLabel();
         addSep = new javax.swing.JSeparator();
+        editLabel = new javax.swing.JLabel();
+        editSep = new javax.swing.JSeparator();
+        removeSep = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         EN = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
@@ -252,7 +252,7 @@ table.addMouseListener(new java.awt.event.MouseAdapter() {
         jPanel3.setBackground(new java.awt.Color(0, 0, 51));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        back.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-back-24.png")); // NOI18N
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-back-24.png"))); // NOI18N
         back.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 backMouseClicked(evt);
@@ -260,27 +260,7 @@ table.addMouseListener(new java.awt.event.MouseAdapter() {
         });
         jPanel3.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 40, -1));
 
-        editLabel.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-edit-24 (2).png")); // NOI18N
-        editLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                editLabelMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                editLabelMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                editLabelMouseExited(evt);
-            }
-        });
-        jPanel3.add(editLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 214, -1, -1));
-
-        editSep.setOpaque(true);
-        jPanel3.add(editSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 244, 24, -1));
-
-        removeSep.setOpaque(true);
-        jPanel3.add(removeSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 299, 24, -1));
-
-        Home.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-home-24.png")); // NOI18N
+        Home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-home-24.png"))); // NOI18N
         Home.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 HomeMouseClicked(evt);
@@ -292,10 +272,13 @@ table.addMouseListener(new java.awt.event.MouseAdapter() {
                 HomeMouseExited(evt);
             }
         });
-        jPanel3.add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 104, -1, -1));
+        jPanel3.add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
-        setting.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-settings-24.png")); // NOI18N
+        setting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-view-26.png"))); // NOI18N
         setting.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                settingMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 settingMouseEntered(evt);
             }
@@ -303,12 +286,12 @@ table.addMouseListener(new java.awt.event.MouseAdapter() {
                 settingMouseExited(evt);
             }
         });
-        jPanel3.add(setting, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 324, -1, -1));
+        jPanel3.add(setting, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
 
         settingSep.setOpaque(true);
-        jPanel3.add(settingSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 354, 24, -1));
+        jPanel3.add(settingSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 24, 2));
 
-        removeLabel.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-remove-24 (1).png")); // NOI18N
+        removeLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-remove-24 (1).png"))); // NOI18N
         removeLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 removeLabelMouseClicked(evt);
@@ -320,13 +303,13 @@ table.addMouseListener(new java.awt.event.MouseAdapter() {
                 removeLabelMouseExited(evt);
             }
         });
-        jPanel3.add(removeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 269, -1, -1));
+        jPanel3.add(removeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
 
         homeSep.setForeground(new java.awt.Color(255, 255, 255));
         homeSep.setOpaque(true);
-        jPanel3.add(homeSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 134, 24, -1));
+        jPanel3.add(homeSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 24, 2));
 
-        addLabel.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-plus-24.png")); // NOI18N
+        addLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-plus-24.png"))); // NOI18N
         addLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 addLabelMouseClicked(evt);
@@ -338,11 +321,31 @@ table.addMouseListener(new java.awt.event.MouseAdapter() {
                 addLabelMouseExited(evt);
             }
         });
-        jPanel3.add(addLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 159, -1, -1));
+        jPanel3.add(addLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
 
         addSep.setForeground(new java.awt.Color(255, 255, 255));
         addSep.setOpaque(true);
-        jPanel3.add(addSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 189, 24, -1));
+        jPanel3.add(addSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 24, 2));
+
+        editLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-edit-24 (2).png"))); // NOI18N
+        editLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                editLabelMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                editLabelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                editLabelMouseExited(evt);
+            }
+        });
+        jPanel3.add(editLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+
+        editSep.setOpaque(true);
+        jPanel3.add(editSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 24, 2));
+
+        removeSep.setOpaque(true);
+        jPanel3.add(removeSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 24, 2));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 460));
 
@@ -357,7 +360,7 @@ table.addMouseListener(new java.awt.event.MouseAdapter() {
         jPanel1.add(EN, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, 250, 30));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 50, 250, 20));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-search-30 (1).png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-search-30 (1).png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, -1, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -385,20 +388,6 @@ table.addMouseListener(new java.awt.event.MouseAdapter() {
         }
     }//GEN-LAST:event_backMouseClicked
 
-    private void editLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editLabelMouseClicked
-        Edit e = new Edit();
-        e.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_editLabelMouseClicked
-
-    private void editLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editLabelMouseEntered
-        editSep.setVisible(true);
-    }//GEN-LAST:event_editLabelMouseEntered
-
-    private void editLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editLabelMouseExited
-        editSep.setVisible(false);
-    }//GEN-LAST:event_editLabelMouseExited
-
     private void HomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseClicked
         try {
             MainMenu m = new MainMenu();
@@ -416,6 +405,12 @@ table.addMouseListener(new java.awt.event.MouseAdapter() {
     private void HomeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseExited
         homeSep.setVisible(false);
     }//GEN-LAST:event_HomeMouseExited
+
+    private void settingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingMouseClicked
+        Display d = new Display();
+        d.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_settingMouseClicked
 
     private void settingMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingMouseEntered
         settingSep.setVisible(true);
@@ -441,7 +436,7 @@ table.addMouseListener(new java.awt.event.MouseAdapter() {
 
     private void addLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addLabelMouseClicked
         try {
-            AddFTE f = new AddFTE();
+            AddEmployee f = new AddEmployee();
             f.setVisible(true);
             this.dispose();
         } catch (IOException ex) {
@@ -456,6 +451,20 @@ table.addMouseListener(new java.awt.event.MouseAdapter() {
     private void addLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addLabelMouseExited
         addSep.setVisible(false);
     }//GEN-LAST:event_addLabelMouseExited
+
+    private void editLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editLabelMouseClicked
+        Edit e = new Edit();
+        e.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_editLabelMouseClicked
+
+    private void editLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editLabelMouseEntered
+        editSep.setVisible(true);
+    }//GEN-LAST:event_editLabelMouseEntered
+
+    private void editLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editLabelMouseExited
+        editSep.setVisible(false);
+    }//GEN-LAST:event_editLabelMouseExited
 
     public void keyPressed(KeyEvent e) {
     if (e.getKeyCode()==KeyEvent.VK_ENTER){

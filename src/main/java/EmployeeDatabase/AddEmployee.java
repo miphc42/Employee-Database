@@ -8,8 +8,6 @@ package EmployeeDatabase;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -17,29 +15,20 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author miphc
  */
-public class EditEmployee extends javax.swing.JFrame {
-    MyHashTable myHashTable = new MyHashTable();
+public class AddEmployee extends javax.swing.JFrame{
+    public MyHashTable myHashTable = new MyHashTable();
+    FTE fullTime;
     String filename;
     /**
-     * Creates new form EditFTE
+     * Creates new form AddEmployee
      */
-    public EditEmployee() throws IOException {
+    public AddEmployee() throws IOException {
         initComponents();
-        
-        System.out.println("MYHASHTABLEE"+MyHashTable.fullOrPart);
-        if(MyHashTable.fullOrPart){
-            System.out.println("FIRST");
-            choice2.addItem("Full Time");
-        choice2.addItem("Part Time");
-            setEditValuesFull(Edit.editing);
-            MyHashTable.fullOrPart = false;
-                                jLabel9.setVisible(true);
+        jLabel9.setVisible(false);
        jLabel8.setVisible(false);
        jLabel7.setVisible(false);
        w.setVisible(false);
@@ -47,89 +36,25 @@ public class EditEmployee extends javax.swing.JFrame {
        weeks.setVisible(false);
        jSeparator8.setVisible(false);
        jSeparator9.setVisible(false);
-      
        jSeparator10.setVisible(false);
+        filename = "src\\main\\java\\EmployeeDatabase\\profile.jpg";
+        if(!MyHashTable.file.equals("")){
+             filename = MyHashTable.file;
+              
         }
-        else{
-            choice2.addItem("Part Time");
-            choice2.addItem("Full Time");
-        
-            setEditValuesPart(Edit.editing);
-             MyHashTable.fullOrPart = true;
-                               jLabel9.setVisible(true);
-       jLabel8.setVisible(true);
-       jLabel7.setVisible(true);
-       w.setVisible(true);
-       h.setVisible(true);
-       weeks.setVisible(true);
-       jSeparator8.setVisible(true);
-       jSeparator9.setVisible(true);
-      
-       jSeparator10.setVisible(true);
-jSeparator6.setVisible(false);
-        S.setVisible(false);
-        Salary.setVisible(false);
-        }
-        
-        
-        
+        BufferedImage originalImage = ImageIO.read(new File(filename)); 
+        ImageIcon imageIcon = new ImageIcon(originalImage); // load the image to a imageIcon
+        Image image1 = imageIcon.getImage(); // transform it 
+        Image newimg = image1.getScaledInstance(120, 120,  java.awt.Image.SCALE_DEFAULT); // scale it the smooth way  
+        imageIcon = new ImageIcon(newimg); 
+        profilePic.setIcon(imageIcon);
+        choice2.addItem("Full Time");
+        choice2.addItem("Part Time");
+        EN.setText("");
+        Male.setSelected(true);
         invis();
     }
-   public void setEditValuesFull(int var) throws IOException{
-        FTE fte = (FTE) myHashTable.getFromTable(Edit.editing);
-        myHashTable.displayEmployees();
-        System.out.println(fte);
-        System.out.println("EN"+fte.employeeNumber);
-        EN.setText(Integer.toString(fte.employeeNumber));
-        FN.setText(fte.firstName);
-        LN.setText(fte.lastName);
-        L.setText(fte.workLocation);
-        if(fte.gender==0){
-            Male.setSelected(true);
-        }
-        else if(fte.gender==1){
-            Female.setSelected(true);
-        }
-        D.setText(Double.toString(fte.deductionRate));
-        S.setText(Double.toString(fte.annualSalary)); 
-        email1.setText(fte.email);
-            BufferedImage originalImage = ImageIO.read(new File(fte.image));
-            ImageIcon imageIcon = new ImageIcon(originalImage); // load the image to a imageIcon
-            Image image1 = imageIcon.getImage(); // transform it 
-            Image newimg = image1.getScaledInstance(120, 120,  java.awt.Image.SCALE_DEFAULT); // scale it the smooth way  
-            imageIcon = new ImageIcon(newimg); 
-            profilePic.setIcon(imageIcon);
-            filename = fte.image;
-    }
-   public void setEditValuesPart(int var) throws IOException{
-        PTE pte = (PTE) myHashTable.getFromTable(Edit.editing);
-        myHashTable.displayEmployees();
-        System.out.println(pte);
-        System.out.println("EN"+pte.employeeNumber);
-        EN.setText(Integer.toString(pte.employeeNumber));
-        FN.setText(pte.firstName);
-        LN.setText(pte.lastName);
-        L.setText(pte.workLocation);
-        if(pte.gender==0){
-            Male.setSelected(true);
-        }
-        else if(pte.gender==1){
-            Female.setSelected(true);
-        }
-        D.setText(Double.toString(pte.deductionRate));
-        w.setText(Double.toString(pte.hoursPerWeek)); 
-         h.setText(Double.toString(pte.hourlyWage)); 
-          weeks.setText(Double.toString(pte.weeksPerYear)); 
-        email1.setText(pte.email);
-        BufferedImage originalImage = ImageIO.read(new File(pte.image));
-            ImageIcon imageIcon = new ImageIcon(originalImage); // load the image to a imageIcon
-            Image image1 = imageIcon.getImage(); // transform it 
-            Image newimg = image1.getScaledInstance(120, 120,  java.awt.Image.SCALE_DEFAULT); // scale it the smooth way  
-            imageIcon = new ImageIcon(newimg); 
-            profilePic.setIcon(imageIcon);
-            filename = pte.image;
-    }
-      public void invis(){
+   public void invis(){
      homeSep.setVisible(false);
      addSep.setVisible(false);
      editSep.setVisible(false);
@@ -146,6 +71,8 @@ jSeparator6.setVisible(false);
     settingSep.setForeground(Color.white.brighter()); // top line color
     settingSep.setBackground(Color.white.brighter());  
     }
+
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -155,7 +82,9 @@ jSeparator6.setVisible(false);
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
+        Warning = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         lastName = new javax.swing.JLabel();
         Salary = new javax.swing.JLabel();
@@ -211,16 +140,21 @@ jSeparator6.setVisible(false);
         jSeparator10 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Edit Full Time Employee");
+        setTitle("Add Full Time Employee");
+        setBackground(new java.awt.Color(255, 255, 255));
         setUndecorated(true);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setForeground(new java.awt.Color(153, 153, 153));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Warning.setForeground(new java.awt.Color(190, 0, 0));
+        jPanel1.add(Warning, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Light", 0, 28)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Edit Employee");
+        jLabel6.setText("Add New Employee");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 250, -1));
 
         lastName.setForeground(new java.awt.Color(255, 255, 255));
@@ -316,7 +250,7 @@ jSeparator6.setVisible(false);
 
         AddPicture.setBackground(new java.awt.Color(255, 255, 255));
         AddPicture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-add-image-24.png"))); // NOI18N
-        AddPicture.setText("Edit ");
+        AddPicture.setText("Add Picture");
         AddPicture.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         AddPicture.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -340,7 +274,7 @@ jSeparator6.setVisible(false);
                 jLabel1MouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, 35));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 30, 35));
 
         Home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-home-24.png"))); // NOI18N
         Home.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -354,7 +288,7 @@ jSeparator6.setVisible(false);
                 HomeMouseExited(evt);
             }
         });
-        jPanel2.add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 90, -1, -1));
+        jPanel2.add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
         setting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-view-26.png"))); // NOI18N
         setting.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -368,10 +302,10 @@ jSeparator6.setVisible(false);
                 settingMouseExited(evt);
             }
         });
-        jPanel2.add(setting, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 310, -1, -1));
+        jPanel2.add(setting, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
 
         settingSep.setOpaque(true);
-        jPanel2.add(settingSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 340, 24, -1));
+        jPanel2.add(settingSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 24, 2));
 
         removeLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-remove-24 (1).png"))); // NOI18N
         removeLabel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -385,11 +319,11 @@ jSeparator6.setVisible(false);
                 removeLabelMouseExited(evt);
             }
         });
-        jPanel2.add(removeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 255, -1, -1));
+        jPanel2.add(removeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
 
         homeSep.setForeground(new java.awt.Color(255, 255, 255));
         homeSep.setOpaque(true);
-        jPanel2.add(homeSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 120, 24, -1));
+        jPanel2.add(homeSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 24, 2));
 
         addLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-plus-24.png"))); // NOI18N
         addLabel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -403,11 +337,11 @@ jSeparator6.setVisible(false);
                 addLabelMouseExited(evt);
             }
         });
-        jPanel2.add(addLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 145, -1, -1));
+        jPanel2.add(addLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
 
         addSep.setForeground(new java.awt.Color(255, 255, 255));
         addSep.setOpaque(true);
-        jPanel2.add(addSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 175, 24, -1));
+        jPanel2.add(addSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 24, 2));
 
         editLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-edit-24 (2).png"))); // NOI18N
         editLabel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -421,13 +355,13 @@ jSeparator6.setVisible(false);
                 editLabelMouseExited(evt);
             }
         });
-        jPanel2.add(editLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 200, -1, -1));
+        jPanel2.add(editLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
 
         editSep.setOpaque(true);
-        jPanel2.add(editSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 230, 24, -1));
+        jPanel2.add(editSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 24, 2));
 
         removeSep.setOpaque(true);
-        jPanel2.add(removeSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 285, 24, -1));
+        jPanel2.add(removeSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 24, 2));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 460));
         jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 380, -1));
@@ -437,7 +371,7 @@ jSeparator6.setVisible(false);
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-save-24.png"))); // NOI18N
-        jButton1.setText("Edit");
+        jButton1.setText("Save");
         jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -546,36 +480,12 @@ jSeparator6.setVisible(false);
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void FNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FNActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FNActionPerformed
-
-    private void LNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LNActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LNActionPerformed
-
-    private void ENActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ENActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ENActionPerformed
-
-    private void DActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DActionPerformed
-
-    private void SActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SActionPerformed
-
-    private void LActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LActionPerformed
 
     private void AddPictureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddPictureActionPerformed
         JFileChooser chooser = new JFileChooser();
@@ -592,10 +502,87 @@ jSeparator6.setVisible(false);
             //close database connection
             System.out.println("A");
         } catch (Exception ex) {
-            Error i = new Error();
+             Error i = new Error();
             i.setVisible(true);
         }
     }//GEN-LAST:event_AddPictureActionPerformed
+
+    private void LActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LActionPerformed
+
+    private void SActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SActionPerformed
+
+    private void DActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DActionPerformed
+
+    private void ENActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ENActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ENActionPerformed
+
+    private void LNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LNActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LNActionPerformed
+
+    private void FNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FNActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FNActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+            try{
+//            String value= gender.getSelectedItem();
+            int g = 0;
+//            if("Female".equals(value)){
+//                g = 1;
+//            }
+            if(Female.isSelected()){
+                g = 1;
+            }
+            if(filename.equals("")){
+                filename = "src\\main\\java\\EmployeeDatabase\\profile.jpg";
+            }
+            if(choice2.getSelectedItem().toString().equals("Full Time")){
+            System.out.println("FILENAME"+filename);
+            fullTime = new FTE(Integer.parseInt(EN.getText()), FN.getText(), LN.getText(), g, L.getText(), Double.parseDouble(D.getText()), Double.parseDouble(S.getText()), 
+                    filename, email1.getText());
+           
+                        myHashTable.addToTable(fullTime);
+            }else{
+                PTE partTime = new PTE(Integer.parseInt(EN.getText()), FN.getText(), LN.getText(), g, L.getText(), Double.parseDouble(D.getText()),  Double.parseDouble(w.getText()), Double.parseDouble(h.getText()), Double.parseDouble(weeks.getText()), 
+                    filename, email1.getText());
+                myHashTable.addToTable(partTime);
+            
+            }
+            Thread t1 = new Thread(new multithreads(email1.getText(), FN.getText()));
+            t1.start();
+            myHashTable.writeToFile();
+            clearFields();
+            
+            Success.t = "Employee Added";
+            Success s = new Success();
+            s.setVisible(true);
+//          JOptionPane.showMessageDialog(null, "Employee Added", "", JOptionPane.PLAIN_MESSAGE);
+        }catch(Exception e){
+//            JOptionPane.showMessageDialog(null, "Enter Valid Values", "", JOptionPane.WARNING_MESSAGE);
+            Error i = new Error();
+            i.setVisible(true);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+ 
+    private void MaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MaleActionPerformed
+        if(Male.isSelected()){
+        Female.setSelected(false);
+        }
+    }//GEN-LAST:event_MaleActionPerformed
+
+    private void FemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FemaleActionPerformed
+        if(Female.isSelected()){
+        Male.setSelected(false);
+        }
+    }//GEN-LAST:event_FemaleActionPerformed
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         try {
@@ -604,63 +591,56 @@ jSeparator6.setVisible(false);
             m.setVisible(true);
             this.dispose();
         } catch (IOException ex) {
-            Error i = new Error();
+             Error i = new Error();
             i.setVisible(true);
         }
+
     }//GEN-LAST:event_jLabel1MouseClicked
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try{
-            //            String value= gender.getSelectedItem();
-            int g = 0;
-            //            if("Female".equals(value)){
-                //                g = 1;
-                //            }
-            if(Female.isSelected()){
-                g = 1;
-            }
-            if(filename.equals("")){
-                filename = "src\\main\\java\\EmployeeDatabase\\profile.jpg";
-            }
-            if(choice2.getSelectedItem().equals("Full Time")){
-                System.out.println("FILENAME"+filename);
-                FTE fullTime = new FTE(Integer.parseInt(EN.getText()), FN.getText(), LN.getText(), g, L.getText(), Double.parseDouble(D.getText()), Double.parseDouble(S.getText()),
-                    filename, email1.getText());
-
-                myHashTable.editTable(fullTime, Edit.editing);
-            }else{
-                PTE partTime = new PTE(Integer.parseInt(EN.getText()), FN.getText(), LN.getText(), g, L.getText(), Double.parseDouble(D.getText()), Double.parseDouble(w.getText()),
-                Double.parseDouble(h.getText()),Double.parseDouble(weeks.getText()), filename, email1.getText());
-                myHashTable.editTable(partTime, Edit.editing);
-
-            }
-            myHashTable.writeToFile();
-            Success.t = "Employee Edited";
-            Success s = new Success();
-            s.setVisible(true);
-            //          JOptionPane.showMessageDialog(null, "Employee Added", "", JOptionPane.PLAIN_MESSAGE);
-        }catch(Exception e){
-            //            JOptionPane.showMessageDialog(null, "Enter Valid Values", "", JOptionPane.WARNING_MESSAGE);
-            Error i = new Error();
-            i.setVisible(true);
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void MaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MaleActionPerformed
-        if(Male.isSelected()){
-            Female.setSelected(false);
-        }
-    }//GEN-LAST:event_MaleActionPerformed
-
-    private void FemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FemaleActionPerformed
-        if(Female.isSelected()){
-            Male.setSelected(false);
-        }
-    }//GEN-LAST:event_FemaleActionPerformed
 
     private void closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseClicked
         this.dispose();
     }//GEN-LAST:event_closeMouseClicked
+
+    private void choice2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_choice2ItemStateChanged
+      if(choice2.getSelectedItem().toString().equals("Part Time")){
+       jLabel9.setVisible(true);
+       jLabel8.setVisible(true);
+       jLabel7.setVisible(true);
+       w.setVisible(true);
+       h.setVisible(true);
+       weeks.setVisible(true);
+       Salary.setVisible(false);
+       S.setVisible(false);
+       jSeparator6.setVisible(false);
+       jSeparator8.setVisible(true);
+       jSeparator9.setVisible(true);
+       jSeparator10.setVisible(true);
+      }else{
+          jSeparator6.setVisible(true);
+       jLabel9.setVisible(false);
+       jLabel8.setVisible(false);
+       jLabel7.setVisible(false);
+       w.setVisible(false);
+       h.setVisible(false);
+       weeks.setVisible(false);
+       Salary.setVisible(true);
+       S.setVisible(true);
+       jSeparator8.setVisible(false);
+       jSeparator9.setVisible(false);
+       jSeparator10.setVisible(false);
+      
+      }
+       
+//        try {
+//            MyHashTable.file = filename;
+//            AddPTE pte = new AddPTE();
+//            pte.setVisible(true);
+//            
+//            this.dispose();
+//        } catch (IOException ex) {
+//            Logger.getLogger(AddFTE.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+    }//GEN-LAST:event_choice2ItemStateChanged
 
     private void closeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseEntered
         close.setBackground(Color.red);
@@ -668,116 +648,13 @@ jSeparator6.setVisible(false);
     }//GEN-LAST:event_closeMouseEntered
 
     private void closeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseExited
-        close.setBackground(new Color(51,51,51));
-        close.setOpaque(true);
+       close.setBackground(new Color(51,51,51));
+       close.setOpaque(true);
     }//GEN-LAST:event_closeMouseExited
-
-    private void choice2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_choice2ItemStateChanged
-        if(choice2.getSelectedItem().toString().equals("Part Time")){
-            jLabel9.setVisible(true);
-            jLabel8.setVisible(true);
-            jLabel7.setVisible(true);
-            w.setVisible(true);
-            h.setVisible(true);
-            weeks.setVisible(true);
-            Salary.setVisible(false);
-            S.setVisible(false);
-            jSeparator6.setVisible(false);
-            jSeparator8.setVisible(true);
-            jSeparator9.setVisible(true);
-            jSeparator10.setVisible(true);
-        }else{
-            jSeparator6.setVisible(true);
-            jLabel9.setVisible(false);
-            jLabel8.setVisible(false);
-            jLabel7.setVisible(false);
-            w.setVisible(false);
-            h.setVisible(false);
-            weeks.setVisible(false);
-            Salary.setVisible(true);
-            S.setVisible(true);
-            jSeparator8.setVisible(false);
-            jSeparator9.setVisible(false);
-            jSeparator10.setVisible(false);
-            
-        }
-
-        //        try {
-            //            MyHashTable.file = filename;
-            //            AddPTE pte = new AddPTE();
-            //            pte.setVisible(true);
-            //
-            //            this.dispose();
-            //        } catch (IOException ex) {
-            //            Logger.getLogger(AddFTE.class.getName()).log(Level.SEVERE, null, ex);
-            //        }
-    }//GEN-LAST:event_choice2ItemStateChanged
 
     private void email1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_email1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_email1ActionPerformed
-
-    private void editLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editLabelMouseExited
-        editSep.setVisible(false);
-    }//GEN-LAST:event_editLabelMouseExited
-
-    private void editLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editLabelMouseEntered
-        editSep.setVisible(true);
-    }//GEN-LAST:event_editLabelMouseEntered
-
-    private void editLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editLabelMouseClicked
-        Edit e = new Edit();
-        e.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_editLabelMouseClicked
-
-    private void addLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addLabelMouseExited
-        addSep.setVisible(false);
-    }//GEN-LAST:event_addLabelMouseExited
-
-    private void addLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addLabelMouseEntered
-        addSep.setVisible(true);
-    }//GEN-LAST:event_addLabelMouseEntered
-
-    private void addLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addLabelMouseClicked
-        try {
-            AddEmployee f = new AddEmployee();
-            f.setVisible(true);
-            this.dispose();
-        } catch (IOException ex) {
-            Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_addLabelMouseClicked
-
-    private void removeLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeLabelMouseExited
-        removeSep.setVisible(false);
-    }//GEN-LAST:event_removeLabelMouseExited
-
-    private void removeLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeLabelMouseEntered
-        removeSep.setVisible(true);
-    }//GEN-LAST:event_removeLabelMouseEntered
-
-    private void removeLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeLabelMouseClicked
-        Remove r = new Remove();
-        r.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_removeLabelMouseClicked
-
-    private void settingMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingMouseExited
-        settingSep.setVisible(false);
-    }//GEN-LAST:event_settingMouseExited
-
-    private void settingMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingMouseEntered
-        settingSep.setVisible(true);
-    }//GEN-LAST:event_settingMouseEntered
-
-    private void HomeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseExited
-        homeSep.setVisible(false);
-    }//GEN-LAST:event_HomeMouseExited
-
-    private void HomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseEntered
-        homeSep.setVisible(true);
-    }//GEN-LAST:event_HomeMouseEntered
 
     private void HomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseClicked
         try {
@@ -789,12 +666,94 @@ jSeparator6.setVisible(false);
         }
     }//GEN-LAST:event_HomeMouseClicked
 
+    private void HomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseEntered
+        homeSep.setVisible(true);
+    }//GEN-LAST:event_HomeMouseEntered
+
+    private void HomeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseExited
+        homeSep.setVisible(false);
+    }//GEN-LAST:event_HomeMouseExited
+
     private void settingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingMouseClicked
         Display d = new Display();
         d.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_settingMouseClicked
 
+    private void settingMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingMouseEntered
+        settingSep.setVisible(true);
+    }//GEN-LAST:event_settingMouseEntered
+
+    private void settingMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingMouseExited
+        settingSep.setVisible(false);
+    }//GEN-LAST:event_settingMouseExited
+
+    private void removeLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeLabelMouseClicked
+        Remove r = new Remove();
+        r.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_removeLabelMouseClicked
+
+    private void removeLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeLabelMouseEntered
+        removeSep.setVisible(true);
+    }//GEN-LAST:event_removeLabelMouseEntered
+
+    private void removeLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_removeLabelMouseExited
+        removeSep.setVisible(false);
+    }//GEN-LAST:event_removeLabelMouseExited
+
+    private void addLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addLabelMouseClicked
+        try {
+            AddEmployee f = new AddEmployee();
+            f.setVisible(true);
+            this.dispose();
+        } catch (IOException ex) {
+            Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_addLabelMouseClicked
+
+    private void addLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addLabelMouseEntered
+        addSep.setVisible(true);
+    }//GEN-LAST:event_addLabelMouseEntered
+
+    private void addLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addLabelMouseExited
+        addSep.setVisible(false);
+    }//GEN-LAST:event_addLabelMouseExited
+
+    private void editLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editLabelMouseClicked
+        Edit e = new Edit();
+        e.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_editLabelMouseClicked
+
+    private void editLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editLabelMouseEntered
+        editSep.setVisible(true);
+    }//GEN-LAST:event_editLabelMouseEntered
+
+    private void editLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editLabelMouseExited
+        editSep.setVisible(false);
+    }//GEN-LAST:event_editLabelMouseExited
+    private void clearFields() throws IOException{
+        EN.setText("");
+        FN.setText("");
+        LN.setText("");
+        L.setText("");
+        D.setText("");
+        S.setText("");
+        email1.setText("");
+        MyHashTable.file = "";
+         w.setText("");
+       h.setText("");
+       weeks.setText("");
+        Male.setSelected(true);
+        BufferedImage originalImage = ImageIO.read(new File("src\\main\\java\\EmployeeDatabase\\profile.jpg"));
+        ImageIcon imageIcon = new ImageIcon(originalImage); // load the image to a imageIcon
+        Image image1 = imageIcon.getImage(); // transform it
+        Image newimg = image1.getScaledInstance(120, 120,  java.awt.Image.SCALE_DEFAULT); // scale it the smooth way
+        imageIcon = new ImageIcon(newimg);
+        profilePic.setIcon(imageIcon);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -812,24 +771,25 @@ jSeparator6.setVisible(false);
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EditEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EditEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EditEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EditEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
+        
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new EditEmployee().setVisible(true);
+                    new AddEmployee().setVisible(true);
                 } catch (IOException ex) {
-                    Logger.getLogger(EditEmployee.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(AddEmployee.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
@@ -852,8 +812,10 @@ jSeparator6.setVisible(false);
     private javax.swing.JRadioButton Male;
     private javax.swing.JFormattedTextField S;
     private javax.swing.JLabel Salary;
+    private javax.swing.JLabel Warning;
     private javax.swing.JLabel addLabel;
     private javax.swing.JSeparator addSep;
+    private javax.swing.ButtonGroup buttonGroup1;
     private java.awt.Choice choice2;
     private javax.swing.JLabel close;
     private javax.swing.JLabel editLabel;

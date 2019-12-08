@@ -66,9 +66,9 @@ public class Success extends javax.swing.JFrame implements ActionListener {
 
         jPanel1.setBackground(new java.awt.Color(51, 204, 0));
 
-        label.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        label.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
         label.setForeground(new java.awt.Color(255, 255, 255));
-        label.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-ok-45.png")); // NOI18N
+        label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-ok-45.png"))); // NOI18N
         label.setText("Employee Added");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -78,7 +78,7 @@ public class Success extends javax.swing.JFrame implements ActionListener {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(label)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

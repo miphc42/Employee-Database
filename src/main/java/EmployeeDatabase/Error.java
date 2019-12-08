@@ -51,7 +51,7 @@ public class Error extends javax.swing.JFrame implements ActionListener {
         text.setFont(new java.awt.Font("Segoe UI Semibold", 0, 19)); // NOI18N
         text.setForeground(new java.awt.Color(255, 255, 255));
         text.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        text.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-error-48.png")); // NOI18N
+        text.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-error-48.png"))); // NOI18N
         text.setText("Error");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

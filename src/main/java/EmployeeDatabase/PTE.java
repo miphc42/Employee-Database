@@ -13,7 +13,7 @@ public class PTE extends EmployeeInfo {
     public double hourlyWage;
     public double hoursPerWeek;
     public double weeksPerYear;
-    public PTE(int employeeNumber, String firstName, String lastName, int gender, int workLocation, double deductionRate, double hourlyWage, double hoursPerWeek, double weeksPerYear, String image, String email){
+    public PTE(int employeeNumber, String firstName, String lastName, int gender, String workLocation, double deductionRate, double hourlyWage, double hoursPerWeek, double weeksPerYear, String image, String email){
         super(employeeNumber, firstName, lastName, gender, workLocation, deductionRate, image, email);
         this.hourlyWage = hourlyWage;
         this.hoursPerWeek = hoursPerWeek;

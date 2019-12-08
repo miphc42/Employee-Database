@@ -86,7 +86,7 @@ public class Edit extends javax.swing.JFrame {
 
         edit.setBackground(new java.awt.Color(255, 255, 255));
         edit.setFont(new java.awt.Font("Segoe UI Light", 0, 11)); // NOI18N
-        edit.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-edit-24.png")); // NOI18N
+        edit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-edit-24.png"))); // NOI18N
         edit.setText("Edit");
         edit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,7 +110,7 @@ public class Edit extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 0, 51));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-back-24.png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-back-24.png"))); // NOI18N
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
@@ -118,7 +118,7 @@ public class Edit extends javax.swing.JFrame {
         });
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
 
-        editLabel.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-edit-24 (2).png")); // NOI18N
+        editLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-edit-24 (2).png"))); // NOI18N
         editLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 editLabelMouseClicked(evt);
@@ -138,7 +138,7 @@ public class Edit extends javax.swing.JFrame {
         removeSep.setOpaque(true);
         jPanel2.add(removeSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 254, 24, -1));
 
-        Home.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-home-24.png")); // NOI18N
+        Home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-home-24.png"))); // NOI18N
         Home.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 HomeMouseClicked(evt);
@@ -152,8 +152,11 @@ public class Edit extends javax.swing.JFrame {
         });
         jPanel2.add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 59, -1, -1));
 
-        setting.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-settings-24.png")); // NOI18N
+        setting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-view-26.png"))); // NOI18N
         setting.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                settingMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 settingMouseEntered(evt);
             }
@@ -166,7 +169,7 @@ public class Edit extends javax.swing.JFrame {
         settingSep.setOpaque(true);
         jPanel2.add(settingSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 309, 24, -1));
 
-        removeLabel.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-remove-24 (1).png")); // NOI18N
+        removeLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-remove-24 (1).png"))); // NOI18N
         removeLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 removeLabelMouseClicked(evt);
@@ -184,7 +187,7 @@ public class Edit extends javax.swing.JFrame {
         homeSep.setOpaque(true);
         jPanel2.add(homeSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 89, 24, -1));
 
-        addLabel.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-plus-24.png")); // NOI18N
+        addLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-plus-24.png"))); // NOI18N
         addLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 addLabelMouseClicked(evt);
@@ -204,7 +207,7 @@ public class Edit extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 340));
 
-        close.setIcon(new javax.swing.ImageIcon("C:\\Users\\miphc\\Downloads\\icons8-multiply-24.png")); // NOI18N
+        close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-multiply-24.png"))); // NOI18N
         close.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 closeMouseClicked(evt);
@@ -241,15 +244,15 @@ public class Edit extends javax.swing.JFrame {
                     editing = Integer.parseInt(editText.getText());
                     check = true;
                     MyHashTable.fullOrPart = true;
-                    EditFTE fte = new EditFTE();
+                    EditEmployee fte = new EditEmployee();
                     fte.setVisible(true);
                     this.dispose();
                 }
                 else{
                     editing = Integer.parseInt(editText.getText());
                     check = true;
-                    MyHashTable.fullOrPart = true;
-                    EditPTE pte = new EditPTE();
+                    MyHashTable.fullOrPart = false;
+                    EditEmployee pte = new EditEmployee();
                     pte.setVisible(true);
                     this.dispose();
                 }
@@ -338,7 +341,7 @@ public class Edit extends javax.swing.JFrame {
 
     private void addLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addLabelMouseClicked
         try {
-            AddFTE f = new AddFTE();
+            AddEmployee f = new AddEmployee();
             f.setVisible(true);
             this.dispose();
         } catch (IOException ex) {
@@ -363,6 +366,12 @@ public class Edit extends javax.swing.JFrame {
         close.setBackground(new Color(51,51,51));
         close.setOpaque(true);
     }//GEN-LAST:event_closeMouseExited
+
+    private void settingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingMouseClicked
+               Display d = new Display();
+        d.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_settingMouseClicked
 
     /**
      * @param args the command line arguments

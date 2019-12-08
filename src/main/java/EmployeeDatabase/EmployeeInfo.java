@@ -14,7 +14,7 @@ public class EmployeeInfo {
     public  String firstName;
     public  String lastName;
     public  int gender;
-    int workLocation;
+    String workLocation;
     double deductionRate;
     public String image;
     public String email;
@@ -24,12 +24,12 @@ public class EmployeeInfo {
         firstName = "a";
         lastName = "z";
         gender = -1;
-        workLocation = -1;
+        workLocation = "";
         deductionRate = -1;
         email = "";
     }
 
-    public EmployeeInfo(int employeeNumber, String firstName, String lastName, int gender, int workLocation, double deductionRate, String image, String email) {
+    public EmployeeInfo(int employeeNumber, String firstName, String lastName, int gender, String workLocation, double deductionRate, String image, String email) {
         this.employeeNumber = employeeNumber;
         this.firstName = firstName;
         this.lastName = lastName;
