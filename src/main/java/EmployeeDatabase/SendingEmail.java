@@ -22,7 +22,7 @@ import javax.mail.internet.MimeMessage;
  */
 public class SendingEmail {
     final static String myEmail = "ComputerScienceAgency@gmail.com";
-    final static String myPassword = "PC20020402";
+    final static String myPassword = "Enter Password";
     public static void send(String receive, String subject, String text) throws MessagingException{
         Properties pro = new Properties();
         pro.put("mail.smtp.auth","true");// smtp = Simple Mail Transfer Protocol
