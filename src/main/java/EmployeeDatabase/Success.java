@@ -7,7 +7,6 @@ package EmployeeDatabase;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Timer;
@@ -68,7 +67,7 @@ public class Success extends javax.swing.JFrame implements ActionListener {
 
         label.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
         label.setForeground(new java.awt.Color(255, 255, 255));
-        label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-ok-45.png"))); // NOI18N
+        label.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-ok-45.png"))); // NOI18N
         label.setText("Employee Added");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

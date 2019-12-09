@@ -5,19 +5,14 @@
  */
 package EmployeeDatabase;
 import java.awt.Color;
-import java.awt.Container;
-import java.awt.Frame;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -35,7 +30,6 @@ public class DisplayEmployee extends javax.swing.JFrame {
         initComponents();
         
         temp = Display.temp;
-        System.out.println("NAME"+temp.firstName);
         FTE fte;
         PTE pte;
         String gender = "";
@@ -49,7 +43,6 @@ public class DisplayEmployee extends javax.swing.JFrame {
         try{
         String partfull = "";
         double salary = 0;
-            System.out.println(temp.firstName);
         if(temp instanceof FTE){
             fte = (FTE) temp;
             partfull = "Full Time";
@@ -67,12 +60,10 @@ public class DisplayEmployee extends javax.swing.JFrame {
         BufferedImage originalImage = ImageIO.read(new File(temp.image));
         ImageIcon imageIcon = new ImageIcon(originalImage); // load the image to a imageIcon
         Image image1 = imageIcon.getImage(); // transform it 
-       System.out.println("TRANSFORM");
         Image newimg = image1.getScaledInstance(120, 120, java.awt.Image.SCALE_DEFAULT); // scale it the smooth way  
         imageIcon = new ImageIcon(newimg);
         picture.setIcon(imageIcon);
-    
-        //JOptionPane.showMessageDialog(null, partfull+" Employee"+"\n\n"+"Employee Number:  "+temp.employeeNumber+"\n"+"First Name:  "+temp.firstName+"\n"+"Last Name:  "+temp.lastName+"\n"+"Annual Salary:  "+"$"+salary+"\n","Employee Information", JOptionPane.PLAIN_MESSAGE);
+
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Employee Not In System","", JOptionPane.PLAIN_MESSAGE);
         }
@@ -118,7 +109,7 @@ public class DisplayEmployee extends javax.swing.JFrame {
         label.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(label, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 224, 140));
 
-        close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-multiply-24.png"))); // NOI18N
+        close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-multiply-24.png"))); // NOI18N
         close.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 closeMouseClicked(evt);
@@ -132,7 +123,7 @@ public class DisplayEmployee extends javax.swing.JFrame {
         });
         jPanel1.add(close, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 3, 30, 30));
 
-        goEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-edit-24 (2).png"))); // NOI18N
+        goEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-edit-24 (2).png"))); // NOI18N
         goEdit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 goEditMouseClicked(evt);
@@ -151,7 +142,7 @@ public class DisplayEmployee extends javax.swing.JFrame {
         jPanel1.add(port, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 150, 30));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, -1, -1));
 
-        goEmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-send-email-24.png"))); // NOI18N
+        goEmail.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-send-email-24.png"))); // NOI18N
         goEmail.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 goEmailMouseClicked(evt);
@@ -187,7 +178,6 @@ public class DisplayEmployee extends javax.swing.JFrame {
         for (int i = 0; i < win.length; i++) {
             win[i].dispose();
         }
-        System.out.println("EMPLOYEE"+temp.employeeNumber);
         if(temp instanceof FTE){
             try {
                 Edit.editing = temp.employeeNumber;
@@ -201,7 +191,6 @@ public class DisplayEmployee extends javax.swing.JFrame {
         }
         else if(temp instanceof PTE){
             try {
-                System.out.println("PART TIME EMP");
                 Edit.editing = temp.employeeNumber;
                 MyHashTable.fullOrPart = false;
                 EditEmployee fte = new EditEmployee();

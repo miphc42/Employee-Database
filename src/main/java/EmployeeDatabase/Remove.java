@@ -10,8 +10,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.mail.MessagingException;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -90,7 +88,7 @@ public class Remove extends javax.swing.JFrame {
 
         removeButton.setBackground(new java.awt.Color(255, 255, 255));
         removeButton.setFont(new java.awt.Font("Segoe UI Light", 0, 11)); // NOI18N
-        removeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-remove-24.png"))); // NOI18N
+        removeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-remove-24.png"))); // NOI18N
         removeButton.setText("Remove");
         removeButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         removeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -107,7 +105,7 @@ public class Remove extends javax.swing.JFrame {
 
         removeAll.setBackground(new java.awt.Color(255, 255, 255));
         removeAll.setFont(new java.awt.Font("Segoe UI Light", 0, 11)); // NOI18N
-        removeAll.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-remove-document-24.png"))); // NOI18N
+        removeAll.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-remove-document-24.png"))); // NOI18N
         removeAll.setText("Remove All");
         removeAll.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         removeAll.addActionListener(new java.awt.event.ActionListener() {
@@ -125,7 +123,7 @@ public class Remove extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 0, 51));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-back-24.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-back-24.png"))); // NOI18N
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
@@ -133,7 +131,7 @@ public class Remove extends javax.swing.JFrame {
         });
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        editLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-edit-24 (2).png"))); // NOI18N
+        editLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-edit-24 (2).png"))); // NOI18N
         editLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 editLabelMouseClicked(evt);
@@ -153,7 +151,7 @@ public class Remove extends javax.swing.JFrame {
         removeSep.setOpaque(true);
         jPanel2.add(removeSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 239, 24, -1));
 
-        Home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-home-24.png"))); // NOI18N
+        Home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-home-24.png"))); // NOI18N
         Home.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 HomeMouseClicked(evt);
@@ -167,7 +165,7 @@ public class Remove extends javax.swing.JFrame {
         });
         jPanel2.add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 44, -1, -1));
 
-        setting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-view-26.png"))); // NOI18N
+        setting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-view-26.png"))); // NOI18N
         setting.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 settingMouseClicked(evt);
@@ -184,7 +182,7 @@ public class Remove extends javax.swing.JFrame {
         settingSep.setOpaque(true);
         jPanel2.add(settingSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 294, 24, -1));
 
-        removeLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-remove-24 (1).png"))); // NOI18N
+        removeLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-remove-24 (1).png"))); // NOI18N
         removeLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 removeLabelMouseClicked(evt);
@@ -202,7 +200,7 @@ public class Remove extends javax.swing.JFrame {
         homeSep.setOpaque(true);
         jPanel2.add(homeSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 74, 24, -1));
 
-        addLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-plus-24.png"))); // NOI18N
+        addLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-plus-24.png"))); // NOI18N
         addLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 addLabelMouseClicked(evt);
@@ -223,7 +221,7 @@ public class Remove extends javax.swing.JFrame {
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 320));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, 190, 10));
 
-        close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-multiply-24.png"))); // NOI18N
+        close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-multiply-24.png"))); // NOI18N
         close.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 closeMouseClicked(evt);
@@ -298,7 +296,7 @@ public class Remove extends javax.swing.JFrame {
             }
             }      
         else{
-          //  JOptionPane.showMessageDialog(null, "Employee Not In System", "", JOptionPane.PLAIN_MESSAGE);
+        
            Error i = new Error();
             i.setVisible(true);
         }

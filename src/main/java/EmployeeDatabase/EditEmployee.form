@@ -128,7 +128,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FNActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="med"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -148,9 +148,6 @@
               <Border info="null"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LNActionPerformed"/>
-          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="310" y="160" width="386" height="28"/>
@@ -172,9 +169,6 @@
               <Format format="###0" subtype="-1" type="0"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ENActionPerformed"/>
-          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="310" y="80" width="386" height="28"/>
@@ -209,9 +203,6 @@
               <Format format="###0.###" subtype="-1" type="0"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DActionPerformed"/>
-          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="310" y="320" width="380" height="26"/>
@@ -246,9 +237,6 @@
               <Format format="###0.###" subtype="-1" type="0"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SActionPerformed"/>
-          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="310" y="360" width="386" height="28"/>
@@ -267,9 +255,6 @@
               <Border info="null"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LActionPerformed"/>
-          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="310" y="240" width="380" height="28"/>
@@ -295,7 +280,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/EmployeeDatabase/icons8-add-image-24.png"/>
+              <Image iconType="3" name="/icons8-add-image-24.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Edit "/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -369,7 +354,7 @@
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/EmployeeDatabase/icons8-back-24.png"/>
+                  <Image iconType="3" name="/icons8-back-24.png"/>
                 </Property>
               </Properties>
               <Events>
@@ -384,7 +369,7 @@
             <Component class="javax.swing.JLabel" name="Home">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/EmployeeDatabase/icons8-home-24.png"/>
+                  <Image iconType="3" name="/icons8-home-24.png"/>
                 </Property>
               </Properties>
               <Events>
@@ -401,7 +386,7 @@
             <Component class="javax.swing.JLabel" name="setting">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/EmployeeDatabase/icons8-view-26.png"/>
+                  <Image iconType="3" name="/icons8-view-26.png"/>
                 </Property>
               </Properties>
               <Events>
@@ -428,7 +413,7 @@
             <Component class="javax.swing.JLabel" name="removeLabel">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/EmployeeDatabase/icons8-remove-24 (1).png"/>
+                  <Image iconType="3" name="/icons8-remove-24 (1).png"/>
                 </Property>
               </Properties>
               <Events>
@@ -458,7 +443,7 @@
             <Component class="javax.swing.JLabel" name="addLabel">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/EmployeeDatabase/icons8-plus-24.png"/>
+                  <Image iconType="3" name="/icons8-plus-24.png"/>
                 </Property>
               </Properties>
               <Events>
@@ -488,7 +473,7 @@
             <Component class="javax.swing.JLabel" name="editLabel">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/EmployeeDatabase/icons8-edit-24 (2).png"/>
+                  <Image iconType="3" name="/icons8-edit-24 (2).png"/>
                 </Property>
               </Properties>
               <Events>
@@ -554,7 +539,7 @@
               <Font name="Segoe UI Light" size="15" style="0"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/EmployeeDatabase/icons8-save-24.png"/>
+              <Image iconType="3" name="/icons8-save-24.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Edit"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -631,7 +616,7 @@
         <Component class="javax.swing.JLabel" name="close">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/EmployeeDatabase/icons8-multiply-24.png"/>
+              <Image iconType="3" name="/icons8-multiply-24.png"/>
             </Property>
           </Properties>
           <Events>
@@ -686,9 +671,6 @@
               <Border info="null"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="email1ActionPerformed"/>
-          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="310" y="200" width="380" height="28"/>

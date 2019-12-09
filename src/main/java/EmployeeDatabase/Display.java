@@ -14,7 +14,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
@@ -70,46 +69,14 @@ table.addMouseListener(new java.awt.event.MouseAdapter() {
     int row = table.rowAtPoint(evt.getPoint());
     int col = table.columnAtPoint(evt.getPoint());
     int count = -1;
-     System.out.println("ROW"+ row);
+ 
     String x =  table.getModel().getValueAt(row, 0).toString();
     temp = myHash.getFromTable(Integer.parseInt(x));
-     
-    
-//    for (int i = 0; i < MyHashTable.buckets.length; i++) {
-//        for(int c = 0; c < MyHashTable.buckets[i].size();c++){  
-//            temp = MyHashTable.buckets[i].get(c);
-//            count++;
-//        }
-//        if(count == row){   
-//            break;
-//        }
-//      
-//        
-//        }
-        System.out.println(temp.firstName);
+
         count2++;
         DisplayEmployee display = new DisplayEmployee();
         display.setVisible(true);
      }
-    
-//        try{
-//        String partfull = "";
-//        double salary = 0;
-//        if(temp instanceof FTE){
-//            fte = (FTE) temp;
-//            partfull = "Full Time";
-//            salary = fte.annualSalary;
-//        }
-//        else if(temp instanceof PTE){
-//            pte = (PTE) temp;
-//            partfull = "Part Time";
-//            salary = pte.calcAnnualNetIncome();
-//            
-//        }
-//        JOptionPane.showMessageDialog(null, partfull+" Employee"+"\n\n"+"Employee Number:  "+temp.employeeNumber+"\n"+"First Name:  "+temp.firstName+"\n"+"Last Name:  "+temp.lastName+"\n"+"Annual Salary:  "+"$"+salary+"\n","Employee Information", JOptionPane.PLAIN_MESSAGE);
-//        }catch(Exception e){
-//            JOptionPane.showMessageDialog(null, "Employee Not In System","", JOptionPane.PLAIN_MESSAGE);
-//        }
     }      
 });
         EN.addActionListener(action);
@@ -252,7 +219,7 @@ table.addMouseListener(new java.awt.event.MouseAdapter() {
         jPanel3.setBackground(new java.awt.Color(0, 0, 51));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-back-24.png"))); // NOI18N
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-back-24.png"))); // NOI18N
         back.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 backMouseClicked(evt);
@@ -260,7 +227,7 @@ table.addMouseListener(new java.awt.event.MouseAdapter() {
         });
         jPanel3.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 40, -1));
 
-        Home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-home-24.png"))); // NOI18N
+        Home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-home-24.png"))); // NOI18N
         Home.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 HomeMouseClicked(evt);
@@ -274,7 +241,7 @@ table.addMouseListener(new java.awt.event.MouseAdapter() {
         });
         jPanel3.add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
-        setting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-view-26.png"))); // NOI18N
+        setting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-view-26.png"))); // NOI18N
         setting.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 settingMouseClicked(evt);
@@ -286,12 +253,12 @@ table.addMouseListener(new java.awt.event.MouseAdapter() {
                 settingMouseExited(evt);
             }
         });
-        jPanel3.add(setting, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
+        jPanel3.add(setting, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
 
         settingSep.setOpaque(true);
-        jPanel3.add(settingSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 24, 2));
+        jPanel3.add(settingSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 24, 2));
 
-        removeLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-remove-24 (1).png"))); // NOI18N
+        removeLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-remove-24 (1).png"))); // NOI18N
         removeLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 removeLabelMouseClicked(evt);
@@ -309,7 +276,7 @@ table.addMouseListener(new java.awt.event.MouseAdapter() {
         homeSep.setOpaque(true);
         jPanel3.add(homeSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 24, 2));
 
-        addLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-plus-24.png"))); // NOI18N
+        addLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-plus-24.png"))); // NOI18N
         addLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 addLabelMouseClicked(evt);
@@ -327,7 +294,7 @@ table.addMouseListener(new java.awt.event.MouseAdapter() {
         addSep.setOpaque(true);
         jPanel3.add(addSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 24, 2));
 
-        editLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-edit-24 (2).png"))); // NOI18N
+        editLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-edit-24 (2).png"))); // NOI18N
         editLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 editLabelMouseClicked(evt);
@@ -360,7 +327,7 @@ table.addMouseListener(new java.awt.event.MouseAdapter() {
         jPanel1.add(EN, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, 250, 30));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 50, 250, 20));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-search-30 (1).png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-search-30 (1).png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, -1, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -482,25 +449,6 @@ table.addMouseListener(new java.awt.event.MouseAdapter() {
               Error i = new Error();
             i.setVisible(true);
         }
-        
-//        try{
-//        String partfull = "";
-//        double salary = 0;
-//        if(temp instanceof FTE){
-//            fte = (FTE) temp;
-//            partfull = "Full Time";
-//            salary = fte.annualSalary;
-//        }
-//        else if(temp instanceof PTE){
-//            pte = (PTE) temp;
-//            partfull = "Part Time";
-//            salary = pte.calcAnnualGrossIncome();
-//            
-//        }
-//        JOptionPane.showMessageDialog(null, partfull+" Employee"+"\n\n"+"Employee Number:  "+temp.employeeNumber+"\n"+"First Name:  "+temp.firstName+"\n"+"Last Name:  "+temp.lastName+"\n"+"Annual Salary:  "+"$"+salary+"\n","Employee Information", JOptionPane.PLAIN_MESSAGE);
-//        }catch(Exception e){
-//            JOptionPane.showMessageDialog(null, "Employee Not In System","", JOptionPane.PLAIN_MESSAGE);
-//        }
     }
 
    

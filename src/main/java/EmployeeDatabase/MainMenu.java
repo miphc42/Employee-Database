@@ -13,14 +13,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
-import javax.swing.BorderFactory;
-import javax.swing.JOptionPane;
-import javax.swing.border.Border;
 
 /**
  *
@@ -34,7 +30,6 @@ public class MainMenu extends javax.swing.JFrame {
      */
     public MainMenu() throws IOException {
         initComponents();
-        table.displayEmployees();
            invis();
         initialize();  
         Action action = new AbstractAction(){
@@ -78,7 +73,6 @@ public class MainMenu extends javax.swing.JFrame {
         try {
             while ((out = b.readLine()) != null) {
                 String[] array = out.split(",");
-                System.out.println(Arrays.toString(array));
                 if(array[0].equals("FullTime")){
                    FTE fte = new FTE(Integer.parseInt(array[1]), array[2], array[3], Integer.parseInt(array[4]), 
                            array[5], Double.parseDouble(array[6]), Double.parseDouble(array[7]), array[8], array[9]);
@@ -150,7 +144,7 @@ public class MainMenu extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 0, 51));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-home-24.png"))); // NOI18N
+        Home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-home-24.png"))); // NOI18N
         Home.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 HomeMouseClicked(evt);
@@ -164,7 +158,7 @@ public class MainMenu extends javax.swing.JFrame {
         });
         jPanel1.add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 60, -1, -1));
 
-        setting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-view-26.png"))); // NOI18N
+        setting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-view-26.png"))); // NOI18N
         setting.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 settingMouseClicked(evt);
@@ -181,7 +175,7 @@ public class MainMenu extends javax.swing.JFrame {
         settingSep.setOpaque(true);
         jPanel1.add(settingSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 310, 24, 2));
 
-        removeLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-remove-24 (1).png"))); // NOI18N
+        removeLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-remove-24 (1).png"))); // NOI18N
         removeLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 removeLabelMouseClicked(evt);
@@ -199,7 +193,7 @@ public class MainMenu extends javax.swing.JFrame {
         homeSep.setOpaque(true);
         jPanel1.add(homeSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 90, 24, 2));
 
-        addLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-plus-24.png"))); // NOI18N
+        addLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-plus-24.png"))); // NOI18N
         addLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 addLabelMouseClicked(evt);
@@ -217,7 +211,7 @@ public class MainMenu extends javax.swing.JFrame {
         addSep.setOpaque(true);
         jPanel1.add(addSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 145, 24, 2));
 
-        editLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-edit-24 (2).png"))); // NOI18N
+        editLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-edit-24 (2).png"))); // NOI18N
         editLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 editLabelMouseClicked(evt);
@@ -249,7 +243,7 @@ public class MainMenu extends javax.swing.JFrame {
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, -1, -1));
 
         RemoveButton.setBackground(new java.awt.Color(255, 255, 255));
-        RemoveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-remove-administrator-100.png"))); // NOI18N
+        RemoveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-remove-administrator-100.png"))); // NOI18N
         RemoveButton.setOpaque(false);
         RemoveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -259,7 +253,7 @@ public class MainMenu extends javax.swing.JFrame {
         jPanel3.add(RemoveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 40, 130, 110));
 
         AddButton.setBackground(new java.awt.Color(255, 255, 255));
-        AddButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-add-administrator-100.png"))); // NOI18N
+        AddButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-add-administrator-100.png"))); // NOI18N
         AddButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         AddButton.setOpaque(false);
         AddButton.addActionListener(new java.awt.event.ActionListener() {
@@ -270,7 +264,7 @@ public class MainMenu extends javax.swing.JFrame {
         jPanel3.add(AddButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, 110));
 
         EditButton.setBackground(new java.awt.Color(255, 255, 255));
-        EditButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-edit-account-100.png"))); // NOI18N
+        EditButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-edit-account-100.png"))); // NOI18N
         EditButton.setOpaque(false);
         EditButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -314,13 +308,13 @@ public class MainMenu extends javax.swing.JFrame {
         jPanel5.add(Text, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 260, 30));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Light", 0, 11)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-search-30.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-search-30.png"))); // NOI18N
         jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
         jPanel5.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 260, 10));
 
         LogOut.setBackground(new java.awt.Color(255, 255, 255));
         LogOut.setFont(new java.awt.Font("Segoe UI Light", 0, 11)); // NOI18N
-        LogOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-account-24.png"))); // NOI18N
+        LogOut.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-account-24.png"))); // NOI18N
         LogOut.setText("Log Out");
         LogOut.setBorder(null);
         LogOut.addActionListener(new java.awt.event.ActionListener() {
@@ -328,11 +322,11 @@ public class MainMenu extends javax.swing.JFrame {
                 LogOutActionPerformed(evt);
             }
         });
-        jPanel5.add(LogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 80, 30));
+        jPanel5.add(LogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 90, 30));
 
         DisplayAll.setBackground(new java.awt.Color(255, 255, 255));
         DisplayAll.setFont(new java.awt.Font("Segoe UI Light", 0, 11)); // NOI18N
-        DisplayAll.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-view-24.png"))); // NOI18N
+        DisplayAll.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-view-24.png"))); // NOI18N
         DisplayAll.setText("View All Employees");
         DisplayAll.setBorder(null);
         DisplayAll.addActionListener(new java.awt.event.ActionListener() {
@@ -342,7 +336,7 @@ public class MainMenu extends javax.swing.JFrame {
         });
         jPanel5.add(DisplayAll, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 140, 30));
 
-        close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-multiply-24 (1).png"))); // NOI18N
+        close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-multiply-24 (1).png"))); // NOI18N
         close.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 closeMouseClicked(evt);
@@ -391,7 +385,7 @@ public class MainMenu extends javax.swing.JFrame {
     private void LogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogOutActionPerformed
         Login l = new Login();
         l.setVisible(true);
-
+        this.dispose();
     }//GEN-LAST:event_LogOutActionPerformed
 
     private void DisplayAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DisplayAllActionPerformed
@@ -503,7 +497,6 @@ public class MainMenu extends javax.swing.JFrame {
         DisplayEmployee display = new DisplayEmployee();
         display.setVisible(true);
         }catch(Exception e){
-             // JOptionPane.showMessageDialog(null, "Employee Not In System","", JOptionPane.ERROR_MESSAGE);
               Error i = new Error();
             i.setVisible(true);
         }

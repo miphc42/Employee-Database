@@ -25,6 +25,7 @@ public class AddEmployee extends javax.swing.JFrame{
     String filename;
     /**
      * Creates new form AddEmployee
+     * @throws java.io.IOException
      */
     public AddEmployee() throws IOException {
         initComponents();
@@ -176,32 +177,17 @@ public class AddEmployee extends javax.swing.JFrame{
         FN.setBackground(new java.awt.Color(51, 51, 51));
         FN.setForeground(new java.awt.Color(255, 255, 255));
         FN.setBorder(null);
-        FN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FNActionPerformed(evt);
-            }
-        });
         jPanel1.add(FN, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, 386, 27));
 
         LN.setBackground(new java.awt.Color(51, 51, 51));
         LN.setForeground(new java.awt.Color(255, 255, 255));
         LN.setBorder(null);
-        LN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LNActionPerformed(evt);
-            }
-        });
         jPanel1.add(LN, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 386, 28));
 
         EN.setBackground(new java.awt.Color(51, 51, 51));
         EN.setBorder(null);
         EN.setForeground(new java.awt.Color(255, 255, 255));
         EN.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###0"))));
-        EN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ENActionPerformed(evt);
-            }
-        });
         jPanel1.add(EN, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 386, 28));
 
         Gender.setForeground(new java.awt.Color(255, 255, 255));
@@ -212,11 +198,6 @@ public class AddEmployee extends javax.swing.JFrame{
         D.setBorder(null);
         D.setForeground(new java.awt.Color(255, 255, 255));
         D.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###0.###"))));
-        D.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DActionPerformed(evt);
-            }
-        });
         jPanel1.add(D, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 320, 380, 26));
 
         Location.setForeground(new java.awt.Color(255, 255, 255));
@@ -227,21 +208,11 @@ public class AddEmployee extends javax.swing.JFrame{
         S.setBorder(null);
         S.setForeground(new java.awt.Color(255, 255, 255));
         S.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###0.###"))));
-        S.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SActionPerformed(evt);
-            }
-        });
         jPanel1.add(S, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, 386, 28));
 
         L.setBackground(new java.awt.Color(51, 51, 51));
         L.setForeground(new java.awt.Color(255, 255, 255));
         L.setBorder(null);
-        L.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LActionPerformed(evt);
-            }
-        });
         jPanel1.add(L, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 380, 28));
 
         Deductions.setForeground(new java.awt.Color(255, 255, 255));
@@ -249,7 +220,7 @@ public class AddEmployee extends javax.swing.JFrame{
         jPanel1.add(Deductions, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, -1, -1));
 
         AddPicture.setBackground(new java.awt.Color(255, 255, 255));
-        AddPicture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-add-image-24.png"))); // NOI18N
+        AddPicture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-add-image-24.png"))); // NOI18N
         AddPicture.setText("Add Picture");
         AddPicture.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         AddPicture.addActionListener(new java.awt.event.ActionListener() {
@@ -268,7 +239,7 @@ public class AddEmployee extends javax.swing.JFrame{
         jPanel2.setBackground(new java.awt.Color(0, 0, 51));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-back-24.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-back-24.png"))); // NOI18N
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
@@ -276,7 +247,7 @@ public class AddEmployee extends javax.swing.JFrame{
         });
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 30, 35));
 
-        Home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-home-24.png"))); // NOI18N
+        Home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-home-24.png"))); // NOI18N
         Home.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 HomeMouseClicked(evt);
@@ -290,7 +261,7 @@ public class AddEmployee extends javax.swing.JFrame{
         });
         jPanel2.add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
-        setting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-view-26.png"))); // NOI18N
+        setting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-view-26.png"))); // NOI18N
         setting.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 settingMouseClicked(evt);
@@ -302,12 +273,12 @@ public class AddEmployee extends javax.swing.JFrame{
                 settingMouseExited(evt);
             }
         });
-        jPanel2.add(setting, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
+        jPanel2.add(setting, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
 
         settingSep.setOpaque(true);
-        jPanel2.add(settingSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 24, 2));
+        jPanel2.add(settingSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 345, 24, 2));
 
-        removeLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-remove-24 (1).png"))); // NOI18N
+        removeLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-remove-24 (1).png"))); // NOI18N
         removeLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 removeLabelMouseClicked(evt);
@@ -325,7 +296,7 @@ public class AddEmployee extends javax.swing.JFrame{
         homeSep.setOpaque(true);
         jPanel2.add(homeSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 24, 2));
 
-        addLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-plus-24.png"))); // NOI18N
+        addLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-plus-24.png"))); // NOI18N
         addLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 addLabelMouseClicked(evt);
@@ -343,7 +314,7 @@ public class AddEmployee extends javax.swing.JFrame{
         addSep.setOpaque(true);
         jPanel2.add(addSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 24, 2));
 
-        editLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-edit-24 (2).png"))); // NOI18N
+        editLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-edit-24 (2).png"))); // NOI18N
         editLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 editLabelMouseClicked(evt);
@@ -370,7 +341,7 @@ public class AddEmployee extends javax.swing.JFrame{
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-save-24.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-save-24.png"))); // NOI18N
         jButton1.setText("Save");
         jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -404,7 +375,7 @@ public class AddEmployee extends javax.swing.JFrame{
         jLabel3.setText("Female");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 290, -1, 20));
 
-        close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-multiply-24.png"))); // NOI18N
+        close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-multiply-24.png"))); // NOI18N
         close.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 closeMouseClicked(evt);
@@ -434,11 +405,6 @@ public class AddEmployee extends javax.swing.JFrame{
         email1.setBackground(new java.awt.Color(51, 51, 51));
         email1.setForeground(new java.awt.Color(255, 255, 255));
         email1.setBorder(null);
-        email1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                email1ActionPerformed(evt);
-            }
-        });
         jPanel1.add(email1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, 380, 28));
         jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 230, 380, 10));
 
@@ -500,36 +466,11 @@ public class AddEmployee extends javax.swing.JFrame{
             imageIcon = new ImageIcon(newimg);
             profilePic.setIcon(imageIcon);
             //close database connection
-            System.out.println("A");
         } catch (Exception ex) {
              Error i = new Error();
             i.setVisible(true);
         }
     }//GEN-LAST:event_AddPictureActionPerformed
-
-    private void LActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LActionPerformed
-
-    private void SActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SActionPerformed
-
-    private void DActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DActionPerformed
-
-    private void ENActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ENActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ENActionPerformed
-
-    private void LNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LNActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LNActionPerformed
-
-    private void FNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FNActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FNActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
             try{
@@ -545,7 +486,7 @@ public class AddEmployee extends javax.swing.JFrame{
                 filename = "src\\main\\java\\EmployeeDatabase\\profile.jpg";
             }
             if(choice2.getSelectedItem().toString().equals("Full Time")){
-            System.out.println("FILENAME"+filename);
+           
             fullTime = new FTE(Integer.parseInt(EN.getText()), FN.getText(), LN.getText(), g, L.getText(), Double.parseDouble(D.getText()), Double.parseDouble(S.getText()), 
                     filename, email1.getText());
            
@@ -630,16 +571,6 @@ public class AddEmployee extends javax.swing.JFrame{
        jSeparator10.setVisible(false);
       
       }
-       
-//        try {
-//            MyHashTable.file = filename;
-//            AddPTE pte = new AddPTE();
-//            pte.setVisible(true);
-//            
-//            this.dispose();
-//        } catch (IOException ex) {
-//            Logger.getLogger(AddFTE.class.getName()).log(Level.SEVERE, null, ex);
-//        }
     }//GEN-LAST:event_choice2ItemStateChanged
 
     private void closeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseEntered
@@ -651,10 +582,6 @@ public class AddEmployee extends javax.swing.JFrame{
        close.setBackground(new Color(51,51,51));
        close.setOpaque(true);
     }//GEN-LAST:event_closeMouseExited
-
-    private void email1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_email1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_email1ActionPerformed
 
     private void HomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseClicked
         try {

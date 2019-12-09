@@ -8,8 +8,6 @@ package EmployeeDatabase;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -17,7 +15,6 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -32,14 +29,12 @@ public class EditEmployee extends javax.swing.JFrame {
     public EditEmployee() throws IOException {
         initComponents();
         
-        System.out.println("MYHASHTABLEE"+MyHashTable.fullOrPart);
         if(MyHashTable.fullOrPart){
-            System.out.println("FIRST");
             choice2.addItem("Full Time");
         choice2.addItem("Part Time");
             setEditValuesFull(Edit.editing);
             MyHashTable.fullOrPart = false;
-                                jLabel9.setVisible(true);
+            jLabel9.setVisible(false);
        jLabel8.setVisible(false);
        jLabel7.setVisible(false);
        w.setVisible(false);
@@ -78,8 +73,6 @@ jSeparator6.setVisible(false);
    public void setEditValuesFull(int var) throws IOException{
         FTE fte = (FTE) myHashTable.getFromTable(Edit.editing);
         myHashTable.displayEmployees();
-        System.out.println(fte);
-        System.out.println("EN"+fte.employeeNumber);
         EN.setText(Integer.toString(fte.employeeNumber));
         FN.setText(fte.firstName);
         LN.setText(fte.lastName);
@@ -104,8 +97,7 @@ jSeparator6.setVisible(false);
    public void setEditValuesPart(int var) throws IOException{
         PTE pte = (PTE) myHashTable.getFromTable(Edit.editing);
         myHashTable.displayEmployees();
-        System.out.println(pte);
-        System.out.println("EN"+pte.employeeNumber);
+
         EN.setText(Integer.toString(pte.employeeNumber));
         FN.setText(pte.firstName);
         LN.setText(pte.lastName);
@@ -244,7 +236,7 @@ jSeparator6.setVisible(false);
         FN.setBorder(null);
         FN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FNActionPerformed(evt);
+                med(evt);
             }
         });
         jPanel1.add(FN, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, 386, 27));
@@ -252,22 +244,12 @@ jSeparator6.setVisible(false);
         LN.setBackground(new java.awt.Color(51, 51, 51));
         LN.setForeground(new java.awt.Color(255, 255, 255));
         LN.setBorder(null);
-        LN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LNActionPerformed(evt);
-            }
-        });
         jPanel1.add(LN, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 386, 28));
 
         EN.setBackground(new java.awt.Color(51, 51, 51));
         EN.setBorder(null);
         EN.setForeground(new java.awt.Color(255, 255, 255));
         EN.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###0"))));
-        EN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ENActionPerformed(evt);
-            }
-        });
         jPanel1.add(EN, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 386, 28));
 
         Gender.setForeground(new java.awt.Color(255, 255, 255));
@@ -278,11 +260,6 @@ jSeparator6.setVisible(false);
         D.setBorder(null);
         D.setForeground(new java.awt.Color(255, 255, 255));
         D.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###0.###"))));
-        D.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DActionPerformed(evt);
-            }
-        });
         jPanel1.add(D, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 320, 380, 26));
 
         Location.setForeground(new java.awt.Color(255, 255, 255));
@@ -293,21 +270,11 @@ jSeparator6.setVisible(false);
         S.setBorder(null);
         S.setForeground(new java.awt.Color(255, 255, 255));
         S.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###0.###"))));
-        S.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SActionPerformed(evt);
-            }
-        });
         jPanel1.add(S, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, 386, 28));
 
         L.setBackground(new java.awt.Color(51, 51, 51));
         L.setForeground(new java.awt.Color(255, 255, 255));
         L.setBorder(null);
-        L.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LActionPerformed(evt);
-            }
-        });
         jPanel1.add(L, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 380, 28));
 
         Deductions.setForeground(new java.awt.Color(255, 255, 255));
@@ -315,7 +282,7 @@ jSeparator6.setVisible(false);
         jPanel1.add(Deductions, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, -1, -1));
 
         AddPicture.setBackground(new java.awt.Color(255, 255, 255));
-        AddPicture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-add-image-24.png"))); // NOI18N
+        AddPicture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-add-image-24.png"))); // NOI18N
         AddPicture.setText("Edit ");
         AddPicture.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         AddPicture.addActionListener(new java.awt.event.ActionListener() {
@@ -334,7 +301,7 @@ jSeparator6.setVisible(false);
         jPanel2.setBackground(new java.awt.Color(0, 0, 51));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-back-24.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-back-24.png"))); // NOI18N
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
@@ -342,7 +309,7 @@ jSeparator6.setVisible(false);
         });
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, 35));
 
-        Home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-home-24.png"))); // NOI18N
+        Home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-home-24.png"))); // NOI18N
         Home.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 HomeMouseClicked(evt);
@@ -356,7 +323,7 @@ jSeparator6.setVisible(false);
         });
         jPanel2.add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 90, -1, -1));
 
-        setting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-view-26.png"))); // NOI18N
+        setting.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-view-26.png"))); // NOI18N
         setting.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 settingMouseClicked(evt);
@@ -373,7 +340,7 @@ jSeparator6.setVisible(false);
         settingSep.setOpaque(true);
         jPanel2.add(settingSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 340, 24, -1));
 
-        removeLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-remove-24 (1).png"))); // NOI18N
+        removeLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-remove-24 (1).png"))); // NOI18N
         removeLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 removeLabelMouseClicked(evt);
@@ -391,7 +358,7 @@ jSeparator6.setVisible(false);
         homeSep.setOpaque(true);
         jPanel2.add(homeSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 120, 24, -1));
 
-        addLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-plus-24.png"))); // NOI18N
+        addLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-plus-24.png"))); // NOI18N
         addLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 addLabelMouseClicked(evt);
@@ -409,7 +376,7 @@ jSeparator6.setVisible(false);
         addSep.setOpaque(true);
         jPanel2.add(addSep, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 175, 24, -1));
 
-        editLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-edit-24 (2).png"))); // NOI18N
+        editLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-edit-24 (2).png"))); // NOI18N
         editLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 editLabelMouseClicked(evt);
@@ -436,7 +403,7 @@ jSeparator6.setVisible(false);
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI Light", 0, 15)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-save-24.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-save-24.png"))); // NOI18N
         jButton1.setText("Edit");
         jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -470,7 +437,7 @@ jSeparator6.setVisible(false);
         jLabel3.setText("Female");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 290, -1, 20));
 
-        close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/EmployeeDatabase/icons8-multiply-24.png"))); // NOI18N
+        close.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8-multiply-24.png"))); // NOI18N
         close.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 closeMouseClicked(evt);
@@ -500,11 +467,6 @@ jSeparator6.setVisible(false);
         email1.setBackground(new java.awt.Color(51, 51, 51));
         email1.setForeground(new java.awt.Color(255, 255, 255));
         email1.setBorder(null);
-        email1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                email1ActionPerformed(evt);
-            }
-        });
         jPanel1.add(email1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, 380, 28));
         jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 230, 380, 10));
 
@@ -553,29 +515,9 @@ jSeparator6.setVisible(false);
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void FNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FNActionPerformed
+    private void med(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_med
         // TODO add your handling code here:
-    }//GEN-LAST:event_FNActionPerformed
-
-    private void LNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LNActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LNActionPerformed
-
-    private void ENActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ENActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ENActionPerformed
-
-    private void DActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DActionPerformed
-
-    private void SActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SActionPerformed
-
-    private void LActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LActionPerformed
+    }//GEN-LAST:event_med
 
     private void AddPictureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddPictureActionPerformed
         JFileChooser chooser = new JFileChooser();
@@ -590,7 +532,6 @@ jSeparator6.setVisible(false);
             imageIcon = new ImageIcon(newimg);
             profilePic.setIcon(imageIcon);
             //close database connection
-            System.out.println("A");
         } catch (Exception ex) {
             Error i = new Error();
             i.setVisible(true);
@@ -623,7 +564,6 @@ jSeparator6.setVisible(false);
                 filename = "src\\main\\java\\EmployeeDatabase\\profile.jpg";
             }
             if(choice2.getSelectedItem().equals("Full Time")){
-                System.out.println("FILENAME"+filename);
                 FTE fullTime = new FTE(Integer.parseInt(EN.getText()), FN.getText(), LN.getText(), g, L.getText(), Double.parseDouble(D.getText()), Double.parseDouble(S.getText()),
                     filename, email1.getText());
 
@@ -638,9 +578,8 @@ jSeparator6.setVisible(false);
             Success.t = "Employee Edited";
             Success s = new Success();
             s.setVisible(true);
-            //          JOptionPane.showMessageDialog(null, "Employee Added", "", JOptionPane.PLAIN_MESSAGE);
+         
         }catch(Exception e){
-            //            JOptionPane.showMessageDialog(null, "Enter Valid Values", "", JOptionPane.WARNING_MESSAGE);
             Error i = new Error();
             i.setVisible(true);
         }
@@ -701,21 +640,7 @@ jSeparator6.setVisible(false);
             jSeparator10.setVisible(false);
             
         }
-
-        //        try {
-            //            MyHashTable.file = filename;
-            //            AddPTE pte = new AddPTE();
-            //            pte.setVisible(true);
-            //
-            //            this.dispose();
-            //        } catch (IOException ex) {
-            //            Logger.getLogger(AddFTE.class.getName()).log(Level.SEVERE, null, ex);
-            //        }
     }//GEN-LAST:event_choice2ItemStateChanged
-
-    private void email1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_email1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_email1ActionPerformed
 
     private void editLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editLabelMouseExited
         editSep.setVisible(false);
