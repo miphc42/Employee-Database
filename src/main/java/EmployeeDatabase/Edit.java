@@ -6,9 +6,12 @@
 package EmployeeDatabase;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 
 /**
  *
@@ -23,6 +26,14 @@ public class Edit extends javax.swing.JFrame {
      */
     public Edit() {
         initComponents();
+        Action action = new AbstractAction(){
+    @Override
+    public void actionPerformed(ActionEvent e)
+    {
+        editEmp();
+    }
+};
+                editText.addActionListener(action);
         invis();
     }
       public void invis(){
@@ -97,6 +108,7 @@ public class Edit extends javax.swing.JFrame {
         editText.setBackground(new java.awt.Color(51, 51, 51));
         editText.setBorder(null);
         editText.setForeground(new java.awt.Color(255, 255, 255));
+        editText.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         editText.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jPanel1.add(editText, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 180, 40));
 
@@ -234,9 +246,8 @@ public class Edit extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
-        if(!editText.getText().equals("")){
+    public void editEmp(){
+     if(!editText.getText().equals("")){
             try{
                 EmployeeInfo temp = table.getFromTable(Integer.parseInt(editText.getText()));
                 if(temp instanceof FTE){
@@ -264,7 +275,9 @@ public class Edit extends javax.swing.JFrame {
         
            Error i = new Error();
             i.setVisible(true);
-        }
+        }}
+    private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
+       editEmp();
     }//GEN-LAST:event_editActionPerformed
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked

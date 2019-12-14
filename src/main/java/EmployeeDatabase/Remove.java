@@ -6,10 +6,13 @@
 package EmployeeDatabase;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 
 /**
  *
@@ -22,6 +25,14 @@ public class Remove extends javax.swing.JFrame {
      */
     public Remove() {
         initComponents();
+                Action action = new AbstractAction(){
+    @Override
+    public void actionPerformed(ActionEvent e)
+    {
+        removeEmp();
+    }
+};
+                removingEmployee.addActionListener(action);
         invis();
     }
      public void invis(){
@@ -83,6 +94,7 @@ public class Remove extends javax.swing.JFrame {
         removingEmployee.setBackground(new java.awt.Color(51, 51, 51));
         removingEmployee.setBorder(null);
         removingEmployee.setForeground(new java.awt.Color(255, 255, 255));
+        removingEmployee.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         removingEmployee.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jPanel1.add(removingEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 188, 40));
 
@@ -270,9 +282,8 @@ public class Remove extends javax.swing.JFrame {
             i.setVisible(true);
         }
     }//GEN-LAST:event_removeAllActionPerformed
-
-    private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
-        if(removingEmployee.getText().equals("")){
+    public void removeEmp(){
+         if(removingEmployee.getText().equals("")){
          //   JOptionPane.showMessageDialog(null, "Enter Employee Number", "", JOptionPane.PLAIN_MESSAGE);
           Error i = new Error();
             i.setVisible(true);
@@ -300,7 +311,10 @@ public class Remove extends javax.swing.JFrame {
            Error i = new Error();
             i.setVisible(true);
         }
-        
+    
+    }
+    private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
+        removeEmp();
     }//GEN-LAST:event_removeButtonActionPerformed
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked

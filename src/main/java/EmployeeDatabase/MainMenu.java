@@ -30,7 +30,7 @@ public class MainMenu extends javax.swing.JFrame {
      */
     public MainMenu() throws IOException {
         initComponents();
-           invis();
+        invis();
         initialize();  
         Action action = new AbstractAction(){
     @Override
@@ -64,8 +64,9 @@ public class MainMenu extends javax.swing.JFrame {
     settingSep.setBackground(Color.white.brighter());  
     }
       public void initialize() throws IOException{
+        
         try{
-        table.clearTable();
+          table.clearTable();
         File f = new File("PermanentStorage.txt");
         FileReader r = new FileReader(f);
         BufferedReader b = new BufferedReader(r);
